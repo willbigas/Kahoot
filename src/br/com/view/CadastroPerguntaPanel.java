@@ -1,11 +1,19 @@
 package br.com.view;
 
 import br.com.kahoot.dao.AssuntoDao;
+import br.com.kahoot.dao.PerguntaDao;
 import br.com.kahoot.daoimpl.AssuntoDaoImpl;
+import br.com.kahoot.daoimpl.PerguntaDaoImpl;
 import br.com.kahoot.entidade.Assunto;
+import br.com.kahoot.entidade.Pergunta;
+import br.com.kahoot.entidade.Resposta;
 import br.com.principal.Principal;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -57,7 +65,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         BotaoVoltar = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        BotaoGravar = new javax.swing.JButton();
         ComboAssunto = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -119,8 +127,13 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         });
         jPanel3.add(BotaoVoltar, new java.awt.GridBagConstraints());
 
-        jButton4.setText("GRAVAR");
-        jPanel3.add(jButton4, new java.awt.GridBagConstraints());
+        BotaoGravar.setText("GRAVAR");
+        BotaoGravar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoGravarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(BotaoGravar, new java.awt.GridBagConstraints());
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -221,8 +234,50 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_BotaoVoltarActionPerformed
 
+    private void BotaoGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoGravarActionPerformed
+        PerguntaDao perguntaDao = new PerguntaDaoImpl();
+        if (CampoPergunta.getText().isEmpty() || CampoResposta1.getText().isEmpty() || CampoResposta2.getText().isEmpty()
+                || CampoResposta3.getText().isEmpty() || CampoResposta4.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor preencha todos os campos para prosseguir!");
+        } else {
+            try {
+                List<String> respostas = new ArrayList<>();
+                Pergunta pergunta = new Pergunta();
+                pergunta.setPergunta(CampoPergunta.getText());
+                int id = ComboAssunto.getSelectedIndex();
+                Assunto assunto = new Assunto();
+                assunto.setId(id);
+                pergunta.setAssunto(assunto);
+                respostas.add(CampoResposta1.getText());
+                respostas.add(CampoResposta2.getText());
+                respostas.add(CampoResposta3.getText());
+                respostas.add(CampoResposta3.getText());
+                pergunta.setTempo(0);
+                List<Resposta> RESPOSTAS = (List<Resposta>) (Object) respostas;
+                pergunta.setRespostas(RESPOSTAS);
+                boolean tudoOk = perguntaDao.inserir(pergunta);
+                if (tudoOk) {
+                    JOptionPane.showMessageDialog(null, "Inserido a pergunta e suas respectivas respostas!");
+                    CampoPergunta.setText(null);
+                    CampoResposta1.setText(null);
+                    CampoResposta2.setText(null);
+                    CampoResposta3.setText(null);
+                    CampoResposta4.setText(null);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Problem detected");
+                }
+
+            } catch (Exception ex) {
+                Logger.getLogger(CadastroPerguntaPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotaoGravarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotaoGravar;
     private javax.swing.JRadioButton BotaoResposta1;
     private javax.swing.JRadioButton BotaoResposta2;
     private javax.swing.JRadioButton BotaoResposta3;
@@ -239,7 +294,6 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.ButtonGroup buttonGroup5;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

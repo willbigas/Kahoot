@@ -95,7 +95,7 @@ public class TestandoPersistenciaBanco {
         perguntaTeste.setId(2);
         perguntaTeste.setPergunta("Quanto é A + B");
         perguntaTeste.setRespostas(RESPOSTAS);
-        perguntaTeste.setTempo(50);
+//        perguntaTeste.setTempo(50);
         perguntaDao.inserir(perguntaTeste);
 
 //       

@@ -152,6 +152,13 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
 
     private void BotaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSalvarActionPerformed
         /**
+         * Recebendo da Inteface e salvando Assunto no Banco de dados.
+         */
+        SalvandoAssunto();
+    }//GEN-LAST:event_BotaoSalvarActionPerformed
+
+    public void SalvandoAssunto() throws HeadlessException {
+        /**
          * Verificando se os campos foram preenchidos corretamente
          *
          */
@@ -164,10 +171,11 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
              * Gravando Assunto no banco de dados atraves do assuntoDao
              *
              */
-            InserindoAssuntoBD();
+            CriandoEgravando();
         }
-    }//GEN-LAST:event_BotaoSalvarActionPerformed
-    public void InserindoAssuntoBD() {
+    }
+
+    public void CriandoEgravando() {
         AssuntoDao assuntoDao = new AssuntoDaoImpl();
         try {
             Assunto assunto = new Assunto();
