@@ -156,11 +156,15 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
                 Disciplina disciplina = new Disciplina();
                 disciplina.setId(id);
                 assunto.setDisciplina(disciplina);
-                boolean inserido = assuntoDao.inserir(assunto);
-                if (inserido) {
-                    JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
-                    CampoNome.setText(null);
-                    ComboDisciplina.setSelectedIndex(0);
+                if (disciplina.getId().equals(0)) {
+                    JOptionPane.showMessageDialog(null, "Por favor preencha a combobox!");
+                } else {
+                    boolean inserido = assuntoDao.inserir(assunto);
+                    if (inserido) {
+                        JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+                        CampoNome.setText(null);
+                        ComboDisciplina.setSelectedIndex(0);
+                    }
                 }
             } catch (Exception ex) {
                 System.out.println(ex.getStackTrace());
@@ -168,9 +172,10 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
                     Principal.panelCadastroAssunto();
 
                 } catch (Exception ex1) {
-                    Logger.getLogger(CadastroAssuntoPanel.class.getName()).log(Level.ALL.SEVERE, null, ex1);
+                    Logger.getLogger(CadastroAssuntoPanel.class.getName()).log(Level.SEVERE, null, ex1);
                 }
             }
+
     }//GEN-LAST:event_BotaoSalvarActionPerformed
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
