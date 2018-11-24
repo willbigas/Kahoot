@@ -7,6 +7,7 @@ import br.com.kahoot.daoimpl.DisciplinaDaoImpl;
 import br.com.kahoot.entidade.Assunto;
 import br.com.kahoot.entidade.Disciplina;
 import br.com.principal.Principal;
+import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -140,43 +141,60 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
+        /**
+         * Aqui volta para o menu do projeto
+         *
+         */
+
         Principal.panelMenu();
         // TODO add your handling code here:
     }//GEN-LAST:event_BotaoVoltarActionPerformed
 
     private void BotaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSalvarActionPerformed
+        /**
+         * Verificando se os campos foram preenchidos corretamente
+         *
+         */
         if (CampoNome.getText().isEmpty() || ComboDisciplina.getSelectedItem().equals(0)) {
             JOptionPane.showMessageDialog(null, "Por favor preencher todos os campos");
         } else {
-            AssuntoDao assuntoDao = new AssuntoDaoImpl();
-            try {
-                Assunto assunto = new Assunto();
-                assunto.setNome(CampoNome.getText());
-                int id = ComboDisciplina.getSelectedIndex();
-                Disciplina disciplina = new Disciplina();
-                disciplina.setId(id);
-                assunto.setDisciplina(disciplina);
-                if (disciplina.getId().equals(0)) {
-                    JOptionPane.showMessageDialog(null, "Por favor preencha a combobox!");
-                } else {
-                    boolean inserido = assuntoDao.inserir(assunto);
-                    if (inserido) {
-                        JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
-                        CampoNome.setText(null);
-                        ComboDisciplina.setSelectedIndex(0);
-                    }
-                }
-            } catch (Exception ex) {
-                System.out.println(ex.getStackTrace());
-                try {
-                    Principal.panelCadastroAssunto();
-
-                } catch (Exception ex1) {
-                    Logger.getLogger(CadastroAssuntoPanel.class.getName()).log(Level.SEVERE, null, ex1);
+            /**
+             * Criando objeto Assunto
+             *
+             * Gravando Assunto no banco de dados atraves do assuntoDao
+             *
+             */
+            InserindoAssuntoBD();
+        }
+    }//GEN-LAST:event_BotaoSalvarActionPerformed
+    public void InserindoAssuntoBD() {
+        AssuntoDao assuntoDao = new AssuntoDaoImpl();
+        try {
+            Assunto assunto = new Assunto();
+            assunto.setNome(CampoNome.getText());
+            int id = ComboDisciplina.getSelectedIndex();
+            Disciplina disciplina = new Disciplina();
+            disciplina.setId(id);
+            assunto.setDisciplina(disciplina);
+            if (disciplina.getId().equals(0)) {
+                JOptionPane.showMessageDialog(null, "Por favor preencha a combobox!");
+            } else {
+                boolean inserido = assuntoDao.inserir(assunto);
+                if (inserido) {
+                    JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+                    CampoNome.setText(null);
+                    ComboDisciplina.setSelectedIndex(0);
                 }
             }
+        } catch (Exception ex) {
+            System.out.println(ex.getStackTrace());
+            try {
+                Principal.panelCadastroAssunto();
 
-    }//GEN-LAST:event_BotaoSalvarActionPerformed
+            } catch (Exception ex1) {
+                Logger.getLogger(CadastroAssuntoPanel.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoSalvar;
