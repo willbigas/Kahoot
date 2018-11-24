@@ -1,11 +1,17 @@
 package br.com.view;
 
+import br.com.kahoot.dao.AssuntoDao;
 import br.com.kahoot.dao.DisciplinaDao;
+import br.com.kahoot.daoimpl.AssuntoDaoImpl;
 import br.com.kahoot.daoimpl.DisciplinaDaoImpl;
+import br.com.kahoot.entidade.Assunto;
 import br.com.kahoot.entidade.Disciplina;
 import br.com.principal.Principal;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -57,7 +63,7 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         BotaoVoltar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        BotaoSalvar = new javax.swing.JButton();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -115,10 +121,15 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel2.add(BotaoVoltar, gridBagConstraints);
 
-        jButton1.setText("SALVAR");
+        BotaoSalvar.setText("SALVAR");
+        BotaoSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoSalvarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel2.add(jButton1, gridBagConstraints);
+        jPanel2.add(BotaoSalvar, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -133,12 +144,40 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_BotaoVoltarActionPerformed
 
+    private void BotaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSalvarActionPerformed
+        if (CampoNome.getText().isEmpty() || ComboDisciplina.getSelectedItem().equals(0)) {
+            JOptionPane.showMessageDialog(null, "Por favor preencher todos os campos");
+        } else {
+            AssuntoDao assuntoDao = new AssuntoDaoImpl();
+            try {
+                Assunto assunto = new Assunto();
+                assunto.setNome(CampoNome.getText());
+                int id = ComboDisciplina.getSelectedIndex();
+                Disciplina disciplina = new Disciplina();
+                disciplina.setId(id);
+                assunto.setDisciplina(disciplina);
+                boolean inserido = assuntoDao.inserir(assunto);
+                if (inserido) {
+                    JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+                    CampoNome.setText(null);
+                    ComboDisciplina.setSelectedIndex(0);
+                }
+            } catch (Exception ex) {
+                System.out.println(ex.getStackTrace());
+                try {
+                    Principal.panelCadastroAssunto();
 
+                } catch (Exception ex1) {
+                    Logger.getLogger(CadastroAssuntoPanel.class.getName()).log(Level.ALL.SEVERE, null, ex1);
+                }
+            }
+    }//GEN-LAST:event_BotaoSalvarActionPerformed
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotaoSalvar;
     private javax.swing.JButton BotaoVoltar;
     private javax.swing.JTextField CampoNome;
     private javax.swing.JComboBox<String> ComboDisciplina;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
