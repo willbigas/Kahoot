@@ -25,6 +25,9 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
      */
     public CadastroAssuntoPanel() throws Exception {
         initComponents();
+        /**
+         * Listando as disciplinas na combobox
+         */
         ListarComboBox();
 
     }
@@ -160,9 +163,7 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
     private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
         /**
          * Aqui volta para o menu do projeto
-         *
          */
-
         Principal.panelMenu();
         // TODO add your handling code here:
     }//GEN-LAST:event_BotaoVoltarActionPerformed
@@ -179,7 +180,8 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
          * Verificando se os campos foram preenchidos corretamente
          *
          */
-        if (CampoNome.getText().isEmpty() || ComboDisciplina.getSelectedItem().equals(0)) {
+        if (CampoNome.getText().isEmpty()
+                || ComboDisciplina.getSelectedItem().equals(0)) {
             JOptionPane.showMessageDialog(null, "Por favor preencher todos os campos");
         } else {
             /**
@@ -188,21 +190,30 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
              * Gravando Assunto no banco de dados atraves do assuntoDao
              *
              */
-            CriandoEgravando();
+            CriandoAssunto();
         }
     }
 
-    public void CriandoEgravando() {
+    public void CriandoAssunto() {
         AssuntoDao assuntoDao = new AssuntoDaoImpl();
         try {
+            /**
+             * Atribuindo os atributos ah assunto
+             */
             Assunto assunto = new Assunto();
             assunto.setNome(CampoNome.getText());
             int id = ComboDisciplina.getSelectedIndex();
             Disciplina disciplina = new Disciplina();
             disciplina.setId(id);
             assunto.setDisciplina(disciplina);
+            /**
+             * Verificando se a combobox foi inserida
+             */
             if (disciplina.getId().equals(0)) {
                 JOptionPane.showMessageDialog(null, "Por favor preencha a combobox!");
+                /**
+                 * Se foi todos os campos inseridos e gravado no bd
+                 */
             } else {
                 boolean inserido = assuntoDao.inserir(assunto);
                 if (inserido) {
@@ -215,9 +226,8 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
             System.out.println(ex.getStackTrace());
             try {
                 Principal.panelCadastroAssunto();
-
-            } catch (Exception ex1) {
-                Logger.getLogger(CadastroAssuntoPanel.class.getName()).log(Level.SEVERE, null, ex1);
+            } catch (Exception exl) {
+                System.out.println(exl.getStackTrace());
             }
         }
     }

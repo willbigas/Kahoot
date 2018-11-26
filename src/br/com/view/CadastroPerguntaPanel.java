@@ -16,20 +16,27 @@ import javax.swing.JOptionPane;
  */
 public class CadastroPerguntaPanel extends javax.swing.JPanel {
 
-    private PerguntaDao perguntaDao = new PerguntaDaoImpl();
-    private AssuntoDao assuntoDao = new AssuntoDaoImpl();
+    private PerguntaDao PERGUNTA_DAO = new PerguntaDaoImpl();
+    private AssuntoDao ASSUNTO_DAO = new AssuntoDaoImpl();
 
     /**
      * Creates new form CadastroPerguntaPanel
      */
     public CadastroPerguntaPanel() throws Exception {
         initComponents();
+        /**
+         * Listando os assuntos na combobox
+         */
         ListarComboBox();
     }
 
     public void ListarComboBox() throws Exception {
+        MostrandoListaAssunto();
+    }
+
+    public void MostrandoListaAssunto() throws Exception {
         try {
-            List<?> assuntos = assuntoDao.pesquisarTodos();
+            List<?> assuntos = ASSUNTO_DAO.pesquisarTodos();
             List<Assunto> assunto = (List<Assunto>) (Object) assuntos;
             for (Assunto ass : assunto) {
                 ComboAssunto.addItem(ass.getNome());
@@ -273,12 +280,16 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
+        /**
+         * Volta para o menu do projeto
+         */
         Principal.panelMenu();
-        // TODO add your handling code here:
     }//GEN-LAST:event_BotaoVoltarActionPerformed
 
     private void BotaoGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoGravarActionPerformed
-
+        /**
+         * Verificando se os campos foram preenchidos corretamente
+         */
         if (CampoPergunta.getText().isEmpty()
                 || CampoResposta1.getText().isEmpty()
                 || CampoResposta2.getText().isEmpty()
@@ -286,16 +297,20 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
                 || CampoResposta4.getText().isEmpty()) {
 
             JOptionPane.showMessageDialog(null, "Por favor preencha todos os campos para prosseguir!");
-
+            /**
+             *
+             */
         } else {
-            
-          
+
         }
 
-        // TODO add your handling code here:
     }//GEN-LAST:event_BotaoGravarActionPerformed
 
     private void BotaoResposta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoResposta1ActionPerformed
+        /**
+         * Verificando se o usuario marcar o primeiro botao o resto se torna
+         * Imarcável
+         */
         if (BotaoResposta1.isSelected()) {
             BotaoResposta2.setSelected(false);
             BotaoResposta3.setSelected(false);
@@ -305,6 +320,10 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_BotaoResposta1ActionPerformed
 
     private void BotaoResposta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoResposta2ActionPerformed
+        /**
+         * Verificando se o usuario marcar o segundo botao o resto se torna
+         * Imarcável
+         */
         if (BotaoResposta2.isSelected()) {
             BotaoResposta1.setSelected(false);
             BotaoResposta3.setSelected(false);
@@ -314,6 +333,10 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_BotaoResposta2ActionPerformed
 
     private void BotaoResposta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoResposta3ActionPerformed
+        /**
+         * Verificando se o usuario marcar o terceiro botao o resto se torna
+         * Imarcável
+         */
         if (BotaoResposta3.isSelected()) {
             BotaoResposta1.setSelected(false);
             BotaoResposta2.setSelected(false);
@@ -323,6 +346,10 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_BotaoResposta3ActionPerformed
 
     private void BotaoResposta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoResposta4ActionPerformed
+        /**
+         * Verificando se o usuario marcar o quarto botao o resto se torna
+         * Imarcável
+         */
         if (BotaoResposta4.isSelected()) {
             BotaoResposta1.setSelected(false);
             BotaoResposta2.setSelected(false);
