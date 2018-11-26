@@ -19,7 +19,7 @@
     <Component class="javax.swing.JButton" name="BotaoAdicionar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="18" style="1"/>
+          <Font name="Times New Roman" size="18" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cadastrar Pergunta"/>
       </Properties>
@@ -35,7 +35,7 @@
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="48" style="1"/>
+          <Font name="Times New Roman" size="48" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Jogar!"/>
       </Properties>
@@ -48,7 +48,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="36" style="3"/>
+          <Font name="Times New Roman" size="36" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Escolha uma op&#xe7;&#xe3;o!"/>
       </Properties>
@@ -61,7 +61,7 @@
     <Component class="javax.swing.JButton" name="BotaoSair">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="18" style="1"/>
+          <Font name="Times New Roman" size="18" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="SAIR"/>
       </Properties>
@@ -77,7 +77,7 @@
     <Component class="javax.swing.JButton" name="BotaoAssunto">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="18" style="1"/>
+          <Font name="Times New Roman" size="18" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cadastrar Assunto"/>
       </Properties>
@@ -93,7 +93,7 @@
     <Component class="javax.swing.JButton" name="BotaoDisciplina">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="18" style="1"/>
+          <Font name="Times New Roman" size="18" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cadastrar Disciplina"/>
       </Properties>
@@ -103,6 +103,19 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
           <GridBagConstraints gridX="0" gridY="2" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="6" insetsLeft="6" insetsBottom="6" insetsRight="6" anchor="10" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Desenvolvido por Agostinho, Adriene, kellison, William"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="0" gridY="6" gridWidth="3" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="22" weightX="0.0" weightY="0.0"/>
         </Constraint>
       </Constraints>
     </Component>

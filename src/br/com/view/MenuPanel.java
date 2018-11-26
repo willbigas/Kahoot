@@ -33,10 +33,11 @@ public class MenuPanel extends javax.swing.JPanel {
         BotaoSair = new javax.swing.JButton();
         BotaoAssunto = new javax.swing.JButton();
         BotaoDisciplina = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
-        BotaoAdicionar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        BotaoAdicionar.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         BotaoAdicionar.setText("Cadastrar Pergunta");
         BotaoAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,7 +51,7 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(BotaoAdicionar, gridBagConstraints);
 
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
         jButton2.setText("Jogar!");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -59,14 +60,14 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(jButton2, gridBagConstraints);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 3, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
         jLabel1.setText("Escolha uma opção!");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(jLabel1, gridBagConstraints);
 
-        BotaoSair.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        BotaoSair.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         BotaoSair.setText("SAIR");
         BotaoSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +81,7 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(BotaoSair, gridBagConstraints);
 
-        BotaoAssunto.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        BotaoAssunto.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         BotaoAssunto.setText("Cadastrar Assunto");
         BotaoAssunto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,7 +95,7 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(BotaoAssunto, gridBagConstraints);
 
-        BotaoDisciplina.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        BotaoDisciplina.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         BotaoDisciplina.setText("Cadastrar Disciplina");
         BotaoDisciplina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +108,16 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(BotaoDisciplina, gridBagConstraints);
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel2.setText("Desenvolvido por Agostinho, Adriene, kellison, William");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(jLabel2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAdicionarActionPerformed
@@ -147,5 +158,6 @@ public class MenuPanel extends javax.swing.JPanel {
     private javax.swing.JButton BotaoSair;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

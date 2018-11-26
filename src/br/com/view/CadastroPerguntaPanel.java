@@ -5,14 +5,9 @@ import br.com.kahoot.dao.PerguntaDao;
 import br.com.kahoot.daoimpl.AssuntoDaoImpl;
 import br.com.kahoot.daoimpl.PerguntaDaoImpl;
 import br.com.kahoot.entidade.Assunto;
-import br.com.kahoot.entidade.Pergunta;
-import br.com.kahoot.entidade.Resposta;
 import br.com.principal.Principal;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,6 +15,9 @@ import javax.swing.JOptionPane;
  * @author Alunos
  */
 public class CadastroPerguntaPanel extends javax.swing.JPanel {
+
+    private PerguntaDao perguntaDao = new PerguntaDaoImpl();
+    private AssuntoDao assuntoDao = new AssuntoDaoImpl();
 
     /**
      * Creates new form CadastroPerguntaPanel
@@ -30,7 +28,6 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
     }
 
     public void ListarComboBox() throws Exception {
-        AssuntoDao assuntoDao = new AssuntoDaoImpl();
         try {
             List<?> assuntos = assuntoDao.pesquisarTodos();
             List<Assunto> assunto = (List<Assunto>) (Object) assuntos;
@@ -38,8 +35,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
                 ComboAssunto.addItem(ass.getNome());
             }
         } catch (SQLException ex) {
-            System.err.println("Erro ao pesquisar disciplina"
-                    + ex.getMessage());
+            System.out.println(ex.getStackTrace());
         }
     }
 
@@ -80,12 +76,13 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         BotaoResposta2 = new javax.swing.JRadioButton();
         BotaoResposta3 = new javax.swing.JRadioButton();
         BotaoResposta4 = new javax.swing.JRadioButton();
+        jLabel7 = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 3, 36)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
         jLabel3.setText("CADASTRO PERGUNTA");
         jPanel1.add(jLabel3, new java.awt.GridBagConstraints());
 
@@ -96,6 +93,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
         CampoPergunta.setColumns(30);
+        CampoPergunta.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -103,6 +101,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jPanel2.add(CampoPergunta, gridBagConstraints);
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("PERGUNTA:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -119,6 +118,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
 
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
+        BotaoVoltar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         BotaoVoltar.setText("VOLTAR");
         BotaoVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +127,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         });
         jPanel3.add(BotaoVoltar, new java.awt.GridBagConstraints());
 
+        BotaoGravar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         BotaoGravar.setText("GRAVAR");
         BotaoGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,6 +142,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(jPanel3, gridBagConstraints);
 
+        ComboAssunto.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         ComboAssunto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o Assunto" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -151,6 +153,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("RESPOSTAS"));
         jPanel4.setLayout(new java.awt.GridBagLayout());
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel1.setText("Resposta 1:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -158,6 +161,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         jPanel4.add(jLabel1, gridBagConstraints);
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("Resposta 2:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -165,6 +169,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         jPanel4.add(jLabel2, gridBagConstraints);
 
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("Resposta 3:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -172,6 +177,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         jPanel4.add(jLabel5, gridBagConstraints);
 
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setText("Resposta 4;");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -180,6 +186,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         jPanel4.add(jLabel6, gridBagConstraints);
 
         CampoResposta1.setColumns(30);
+        CampoResposta1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
@@ -187,6 +194,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         jPanel4.add(CampoResposta1, gridBagConstraints);
 
         CampoResposta2.setColumns(30);
+        CampoResposta2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
@@ -194,6 +202,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         jPanel4.add(CampoResposta2, gridBagConstraints);
 
         CampoResposta3.setColumns(30);
+        CampoResposta3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 5;
@@ -201,23 +210,48 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         jPanel4.add(CampoResposta3, gridBagConstraints);
 
         CampoResposta4.setColumns(30);
+        CampoResposta4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         jPanel4.add(CampoResposta4, gridBagConstraints);
+
+        BotaoResposta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoResposta1ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         jPanel4.add(BotaoResposta1, gridBagConstraints);
+
+        BotaoResposta2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoResposta2ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         jPanel4.add(BotaoResposta2, gridBagConstraints);
+
+        BotaoResposta3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoResposta3ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         jPanel4.add(BotaoResposta3, gridBagConstraints);
+
+        BotaoResposta4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoResposta4ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -227,6 +261,15 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         add(jPanel4, gridBagConstraints);
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel7.setText("Desenvolvido por Agostinho, Adriene, kellison, William");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(jLabel7, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
@@ -235,47 +278,58 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_BotaoVoltarActionPerformed
 
     private void BotaoGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoGravarActionPerformed
-        PerguntaDao perguntaDao = new PerguntaDaoImpl();
-        if (CampoPergunta.getText().isEmpty() || CampoResposta1.getText().isEmpty() || CampoResposta2.getText().isEmpty()
-                || CampoResposta3.getText().isEmpty() || CampoResposta4.getText().isEmpty()) {
+
+        if (CampoPergunta.getText().isEmpty()
+                || CampoResposta1.getText().isEmpty()
+                || CampoResposta2.getText().isEmpty()
+                || CampoResposta3.getText().isEmpty()
+                || CampoResposta4.getText().isEmpty()) {
+
             JOptionPane.showMessageDialog(null, "Por favor preencha todos os campos para prosseguir!");
+
         } else {
-            try {
-                List<String> respostas = new ArrayList<>();
-                Resposta resposta = new Resposta();
-                Pergunta pergunta = new Pergunta();
-                pergunta.setPergunta(CampoPergunta.getText());
-                int id = ComboAssunto.getSelectedIndex();
-                Assunto assunto = new Assunto();
-                assunto.setId(id);
-                pergunta.setAssunto(assunto);
-                resposta.setResposta(CampoResposta1.getText());
-                resposta.setResposta(CampoResposta2.getText());
-                resposta.setResposta(CampoResposta3.getText());
-                resposta.setResposta(CampoResposta4.getText());
-
-                pergunta.setTempo(0);
-                List<Resposta> RESPOSTAS = new ArrayList<>();
-                pergunta.setRespostas(RESPOSTAS);
-                boolean tudoOk = perguntaDao.inserir(pergunta);
-                if (tudoOk) {
-                    JOptionPane.showMessageDialog(null, "Inserido a pergunta e suas respectivas respostas!");
-                    CampoPergunta.setText(null);
-                    CampoResposta1.setText(null);
-                    CampoResposta2.setText(null);
-                    CampoResposta3.setText(null);
-                    CampoResposta4.setText(null);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Problem detected");
-                }
-
-            } catch (Exception ex) {
-                Logger.getLogger(CadastroPerguntaPanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
+          
         }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_BotaoGravarActionPerformed
+
+    private void BotaoResposta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoResposta1ActionPerformed
+        if (BotaoResposta1.isSelected()) {
+            BotaoResposta2.setSelected(false);
+            BotaoResposta3.setSelected(false);
+            BotaoResposta4.setSelected(false);
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotaoResposta1ActionPerformed
+
+    private void BotaoResposta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoResposta2ActionPerformed
+        if (BotaoResposta2.isSelected()) {
+            BotaoResposta1.setSelected(false);
+            BotaoResposta3.setSelected(false);
+            BotaoResposta4.setSelected(false);
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotaoResposta2ActionPerformed
+
+    private void BotaoResposta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoResposta3ActionPerformed
+        if (BotaoResposta3.isSelected()) {
+            BotaoResposta1.setSelected(false);
+            BotaoResposta2.setSelected(false);
+            BotaoResposta4.setSelected(false);
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotaoResposta3ActionPerformed
+
+    private void BotaoResposta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoResposta4ActionPerformed
+        if (BotaoResposta4.isSelected()) {
+            BotaoResposta1.setSelected(false);
+            BotaoResposta2.setSelected(false);
+            BotaoResposta3.setSelected(false);
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotaoResposta4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -302,6 +356,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

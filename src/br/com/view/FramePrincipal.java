@@ -36,6 +36,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         BotaoEntrar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
@@ -49,7 +50,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("Nome:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -58,7 +59,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         getContentPane().add(jLabel2, gridBagConstraints);
 
         CampoNome.setColumns(10);
-        CampoNome.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        CampoNome.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -68,6 +69,7 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
+        BotaoSair.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         BotaoSair.setText("SAIR");
         BotaoSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,6 +83,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(BotaoSair, gridBagConstraints);
 
+        BotaoEntrar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         BotaoEntrar.setText("ENTRAR");
         BotaoEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,7 +108,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 48)); // NOI18N
-        jLabel1.setText("QUIZ SENAC");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/quiz.jpg"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -118,6 +121,15 @@ public class FramePrincipal extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         getContentPane().add(jPanel2, gridBagConstraints);
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel3.setText("Desenvolvido por Agostinho, Adriene, kellison, William");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        getContentPane().add(jLabel3, gridBagConstraints);
 
         jMenu3.setText("File");
         jMenuBar2.add(jMenu3);
@@ -132,7 +144,7 @@ public class FramePrincipal extends javax.swing.JFrame {
 
     private void BotaoEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEntrarActionPerformed
         if (CampoNome.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor preencha os campos para entrar");
+            JOptionPane.showMessageDialog(null, "Por favor digite um nome para prosseguir!");
         } else {
             Principal.panelMenu();
         }
@@ -186,6 +198,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField CampoNome;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
