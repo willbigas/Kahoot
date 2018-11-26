@@ -121,7 +121,7 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
         BotaoVoltar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        BotaoVoltar.setText("VOLTAR");
+        BotaoVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_voltar_32x32.png"))); // NOI18N
         BotaoVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoVoltarActionPerformed(evt);
@@ -132,7 +132,7 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
         jPanel2.add(BotaoVoltar, gridBagConstraints);
 
         BotaoSalvar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        BotaoSalvar.setText("SALVAR");
+        BotaoSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_salvar_32x32.png"))); // NOI18N
         BotaoSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoSalvarActionPerformed(evt);
@@ -146,6 +146,7 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
         add(jPanel2, gridBagConstraints);
 

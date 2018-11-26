@@ -29,17 +29,14 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jLabel2 = new javax.swing.JLabel();
+        textoNome = new javax.swing.JLabel();
         CampoNome = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
+        PainelBotoesInferior = new javax.swing.JPanel();
         BotaoSair = new javax.swing.JButton();
         BotaoEntrar = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
+        PainelImagem = new javax.swing.JPanel();
+        img_Quiz = new javax.swing.JLabel();
+        textoDesenvolvimento = new javax.swing.JLabel();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -50,13 +47,13 @@ public class FramePrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel2.setText("Nome:");
+        textoNome.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        textoNome.setText("Nome:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(jLabel2, gridBagConstraints);
+        getContentPane().add(textoNome, gridBagConstraints);
 
         CampoNome.setColumns(10);
         CampoNome.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -67,10 +64,10 @@ public class FramePrincipal extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         getContentPane().add(CampoNome, gridBagConstraints);
 
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        PainelBotoesInferior.setLayout(new java.awt.GridBagLayout());
 
         BotaoSair.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        BotaoSair.setText("SAIR");
+        BotaoSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_sairAplicacao.png"))); // NOI18N
         BotaoSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoSairActionPerformed(evt);
@@ -81,10 +78,10 @@ public class FramePrincipal extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel1.add(BotaoSair, gridBagConstraints);
+        PainelBotoesInferior.add(BotaoSair, gridBagConstraints);
 
         BotaoEntrar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        BotaoEntrar.setText("ENTRAR");
+        BotaoEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_entrar_48x48.png"))); // NOI18N
         BotaoEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoEntrarActionPerformed(evt);
@@ -95,7 +92,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel1.add(BotaoEntrar, gridBagConstraints);
+        PainelBotoesInferior.add(BotaoEntrar, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -103,41 +100,33 @@ public class FramePrincipal extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(jPanel1, gridBagConstraints);
+        getContentPane().add(PainelBotoesInferior, gridBagConstraints);
 
-        jPanel2.setLayout(new java.awt.GridBagLayout());
+        PainelImagem.setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 3, 48)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/quiz.jpg"))); // NOI18N
+        img_Quiz.setFont(new java.awt.Font("Dialog", 3, 48)); // NOI18N
+        img_Quiz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/quiz.jpg"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(19, 0, 19, 0);
-        jPanel2.add(jLabel1, gridBagConstraints);
+        PainelImagem.add(img_Quiz, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
-        getContentPane().add(jPanel2, gridBagConstraints);
+        getContentPane().add(PainelImagem, gridBagConstraints);
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel3.setText("Desenvolvido por Agostinho, Adriene, kellison, William");
+        textoDesenvolvimento.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        textoDesenvolvimento.setText("Desenvolvido por Agostinho, Adriene, kellison, William");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        getContentPane().add(jLabel3, gridBagConstraints);
-
-        jMenu3.setText("File");
-        jMenuBar2.add(jMenu3);
-
-        jMenu4.setText("Edit");
-        jMenuBar2.add(jMenu4);
-
-        setJMenuBar(jMenuBar2);
+        getContentPane().add(textoDesenvolvimento, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -196,16 +185,13 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JButton BotaoEntrar;
     private javax.swing.JButton BotaoSair;
     private javax.swing.JTextField CampoNome;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel PainelBotoesInferior;
+    private javax.swing.JPanel PainelImagem;
+    private javax.swing.JLabel img_Quiz;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel textoDesenvolvimento;
+    private javax.swing.JLabel textoNome;
     // End of variables declaration//GEN-END:variables
 }

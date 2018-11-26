@@ -2,11 +2,16 @@ package br.com.view;
 
 import br.com.kahoot.dao.AssuntoDao;
 import br.com.kahoot.dao.PerguntaDao;
+import br.com.kahoot.dao.RespostaDao;
 import br.com.kahoot.daoimpl.AssuntoDaoImpl;
 import br.com.kahoot.daoimpl.PerguntaDaoImpl;
+import br.com.kahoot.daoimpl.RespostaDaoImpl;
 import br.com.kahoot.entidade.Assunto;
+import br.com.kahoot.entidade.Pergunta;
+import br.com.kahoot.entidade.Resposta;
 import br.com.principal.Principal;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -15,9 +20,11 @@ import javax.swing.JOptionPane;
  * @author Alunos
  */
 public class CadastroPerguntaPanel extends javax.swing.JPanel {
-
+    
     private PerguntaDao PERGUNTA_DAO = new PerguntaDaoImpl();
     private AssuntoDao ASSUNTO_DAO = new AssuntoDaoImpl();
+    private RespostaDao RESPOSTA_DAO = new RespostaDaoImpl();
+    private Assunto ASSUNTO_SELECIONADO = new Assunto();
 
     /**
      * Creates new form CadastroPerguntaPanel
@@ -29,11 +36,11 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
          */
         ListarComboBox();
     }
-
+    
     public void ListarComboBox() throws Exception {
         MostrandoListaAssunto();
     }
-
+    
     public void MostrandoListaAssunto() throws Exception {
         try {
             List<?> assuntos = ASSUNTO_DAO.pesquisarTodos();
@@ -61,20 +68,20 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         buttonGroup3 = new javax.swing.ButtonGroup();
         buttonGroup4 = new javax.swing.ButtonGroup();
         buttonGroup5 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        PanelSuperior = new javax.swing.JPanel();
+        textoCadastroPergunta = new javax.swing.JLabel();
+        PanelPergunta = new javax.swing.JPanel();
         CampoPergunta = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        textoPergunta = new javax.swing.JLabel();
+        PanelBotaoInferior = new javax.swing.JPanel();
         BotaoVoltar = new javax.swing.JButton();
         BotaoGravar = new javax.swing.JButton();
         ComboAssunto = new javax.swing.JComboBox<>();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        PanelCorpo = new javax.swing.JPanel();
+        textoResposta1 = new javax.swing.JLabel();
+        textoResposta2 = new javax.swing.JLabel();
+        textoResposta3 = new javax.swing.JLabel();
+        textoResposta4 = new javax.swing.JLabel();
         CampoResposta1 = new javax.swing.JTextField();
         CampoResposta2 = new javax.swing.JTextField();
         CampoResposta3 = new javax.swing.JTextField();
@@ -83,21 +90,21 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         BotaoResposta2 = new javax.swing.JRadioButton();
         BotaoResposta3 = new javax.swing.JRadioButton();
         BotaoResposta4 = new javax.swing.JRadioButton();
-        jLabel7 = new javax.swing.JLabel();
+        textoDesenvolvimento = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        PanelSuperior.setLayout(new java.awt.GridBagLayout());
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
-        jLabel3.setText("CADASTRO PERGUNTA");
-        jPanel1.add(jLabel3, new java.awt.GridBagConstraints());
+        textoCadastroPergunta.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
+        textoCadastroPergunta.setText("CADASTRO PERGUNTA");
+        PanelSuperior.add(textoCadastroPergunta, new java.awt.GridBagConstraints());
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(jPanel1, gridBagConstraints);
+        add(PanelSuperior, gridBagConstraints);
 
-        jPanel2.setLayout(new java.awt.GridBagLayout());
+        PanelPergunta.setLayout(new java.awt.GridBagLayout());
 
         CampoPergunta.setColumns(30);
         CampoPergunta.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -106,48 +113,51 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
-        jPanel2.add(CampoPergunta, gridBagConstraints);
+        PanelPergunta.add(CampoPergunta, gridBagConstraints);
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel4.setText("PERGUNTA:");
+        textoPergunta.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        textoPergunta.setText("PERGUNTA:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
-        jPanel2.add(jLabel4, gridBagConstraints);
+        PanelPergunta.add(textoPergunta, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(jPanel2, gridBagConstraints);
+        add(PanelPergunta, gridBagConstraints);
 
-        jPanel3.setLayout(new java.awt.GridBagLayout());
+        PanelBotaoInferior.setLayout(new java.awt.GridBagLayout());
 
         BotaoVoltar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        BotaoVoltar.setText("VOLTAR");
+        BotaoVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_voltar_32x32.png"))); // NOI18N
         BotaoVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoVoltarActionPerformed(evt);
             }
         });
-        jPanel3.add(BotaoVoltar, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
+        PanelBotaoInferior.add(BotaoVoltar, gridBagConstraints);
 
         BotaoGravar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        BotaoGravar.setText("GRAVAR");
+        BotaoGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_salvar_32x32.png"))); // NOI18N
         BotaoGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoGravarActionPerformed(evt);
             }
         });
-        jPanel3.add(BotaoGravar, new java.awt.GridBagConstraints());
+        PanelBotaoInferior.add(BotaoGravar, new java.awt.GridBagConstraints());
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(jPanel3, gridBagConstraints);
+        add(PanelBotaoInferior, gridBagConstraints);
 
         ComboAssunto.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         ComboAssunto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o Assunto" }));
@@ -157,40 +167,40 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(ComboAssunto, gridBagConstraints);
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("RESPOSTAS"));
-        jPanel4.setLayout(new java.awt.GridBagLayout());
+        PanelCorpo.setBorder(javax.swing.BorderFactory.createTitledBorder("RESPOSTAS"));
+        PanelCorpo.setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel1.setText("Resposta 1:");
+        textoResposta1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        textoResposta1.setText("Resposta 1:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
-        jPanel4.add(jLabel1, gridBagConstraints);
+        PanelCorpo.add(textoResposta1, gridBagConstraints);
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel2.setText("Resposta 2:");
+        textoResposta2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        textoResposta2.setText("Resposta 2:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
-        jPanel4.add(jLabel2, gridBagConstraints);
+        PanelCorpo.add(textoResposta2, gridBagConstraints);
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel5.setText("Resposta 3:");
+        textoResposta3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        textoResposta3.setText("Resposta 3:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
-        jPanel4.add(jLabel5, gridBagConstraints);
+        PanelCorpo.add(textoResposta3, gridBagConstraints);
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel6.setText("Resposta 4;");
+        textoResposta4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        textoResposta4.setText("Resposta 4;");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
-        jPanel4.add(jLabel6, gridBagConstraints);
+        PanelCorpo.add(textoResposta4, gridBagConstraints);
 
         CampoResposta1.setColumns(30);
         CampoResposta1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -198,7 +208,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
-        jPanel4.add(CampoResposta1, gridBagConstraints);
+        PanelCorpo.add(CampoResposta1, gridBagConstraints);
 
         CampoResposta2.setColumns(30);
         CampoResposta2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -206,7 +216,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
-        jPanel4.add(CampoResposta2, gridBagConstraints);
+        PanelCorpo.add(CampoResposta2, gridBagConstraints);
 
         CampoResposta3.setColumns(30);
         CampoResposta3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -214,7 +224,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
-        jPanel4.add(CampoResposta3, gridBagConstraints);
+        PanelCorpo.add(CampoResposta3, gridBagConstraints);
 
         CampoResposta4.setColumns(30);
         CampoResposta4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -222,7 +232,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
-        jPanel4.add(CampoResposta4, gridBagConstraints);
+        PanelCorpo.add(CampoResposta4, gridBagConstraints);
 
         BotaoResposta1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,7 +242,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        jPanel4.add(BotaoResposta1, gridBagConstraints);
+        PanelCorpo.add(BotaoResposta1, gridBagConstraints);
 
         BotaoResposta2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -242,7 +252,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        jPanel4.add(BotaoResposta2, gridBagConstraints);
+        PanelCorpo.add(BotaoResposta2, gridBagConstraints);
 
         BotaoResposta3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,7 +262,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
-        jPanel4.add(BotaoResposta3, gridBagConstraints);
+        PanelCorpo.add(BotaoResposta3, gridBagConstraints);
 
         BotaoResposta4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -262,21 +272,21 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
-        jPanel4.add(BotaoResposta4, gridBagConstraints);
+        PanelCorpo.add(BotaoResposta4, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
-        add(jPanel4, gridBagConstraints);
+        add(PanelCorpo, gridBagConstraints);
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel7.setText("Desenvolvido por Agostinho, Adriene, kellison, William");
+        textoDesenvolvimento.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        textoDesenvolvimento.setText("Desenvolvido por Agostinho, Adriene, kellison, William");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(jLabel7, gridBagConstraints);
+        add(textoDesenvolvimento, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
@@ -295,13 +305,84 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
                 || CampoResposta2.getText().isEmpty()
                 || CampoResposta3.getText().isEmpty()
                 || CampoResposta4.getText().isEmpty()) {
-
+            
             JOptionPane.showMessageDialog(null, "Por favor preencha todos os campos para prosseguir!");
             /**
              *
              */
         } else {
-
+            
+            String nome = (String) ComboAssunto.getSelectedItem();
+            
+            try {
+                
+                List<Assunto> ASSUNTOS = (List<Assunto>) (Object) ASSUNTO_DAO.pesquisarTodos();
+                for (int i = 0; i < ASSUNTOS.size(); i++) {
+                    Assunto get = ASSUNTOS.get(i);
+                    if (get.getNome().equals(nome)) {
+                        ASSUNTO_SELECIONADO = get;
+                    }
+                }
+            } catch (Exception exception) {
+            }
+            
+            Pergunta pergunta = new Pergunta();
+            pergunta.setAssunto(ASSUNTO_SELECIONADO);
+            pergunta.setPergunta(CampoPergunta.getText());
+            List<Resposta> respostasDoUsuario = new ArrayList<>();
+            Resposta rsp1 = new Resposta();
+            Resposta rsp2 = new Resposta();
+            Resposta rsp3 = new Resposta();
+            Resposta rsp4 = new Resposta();
+            rsp1.setResposta(CampoResposta1.getText());
+            rsp2.setResposta(CampoResposta2.getText());
+            rsp3.setResposta(CampoResposta3.getText());
+            rsp4.setResposta(CampoResposta4.getText());
+            if (BotaoResposta1.isSelected()) {
+                rsp1.setCorreta(true);
+                rsp2.setCorreta(false);
+                rsp3.setCorreta(false);
+                rsp4.setCorreta(false);
+            }
+            
+            if (BotaoResposta2.isSelected()) {
+                rsp1.setCorreta(false);
+                rsp2.setCorreta(true);
+                rsp3.setCorreta(false);
+                rsp4.setCorreta(false);
+            }
+            
+            if (BotaoResposta3.isSelected()) {
+                rsp1.setCorreta(false);
+                rsp2.setCorreta(false);
+                rsp3.setCorreta(true);
+                rsp4.setCorreta(false);
+            }
+            
+            if (BotaoResposta4.isSelected()) {
+                rsp1.setCorreta(false);
+                rsp2.setCorreta(false);
+                rsp3.setCorreta(false);
+                rsp4.setCorreta(true);
+            }
+            respostasDoUsuario.add(rsp1);
+            respostasDoUsuario.add(rsp2);
+            respostasDoUsuario.add(rsp3);
+            respostasDoUsuario.add(rsp4);
+            pergunta.setRespostas(respostasDoUsuario);
+            pergunta.setTempo(1);
+            
+            try {
+               boolean inserido =  PERGUNTA_DAO.inserir(pergunta);
+               if(inserido) {
+                   JOptionPane.showMessageDialog(this, "Inserido com Sucesso!");
+               } else {
+                   JOptionPane.showMessageDialog(null, "Não inseriu!");
+               }
+            } catch (Exception exception) {
+                JOptionPane.showMessageDialog(this, "ixi , deu pau no banco!");
+            }
+            
         }
 
     }//GEN-LAST:event_BotaoGravarActionPerformed
@@ -372,21 +453,21 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
     private javax.swing.JTextField CampoResposta3;
     private javax.swing.JTextField CampoResposta4;
     private javax.swing.JComboBox<String> ComboAssunto;
+    private javax.swing.JPanel PanelBotaoInferior;
+    private javax.swing.JPanel PanelCorpo;
+    private javax.swing.JPanel PanelPergunta;
+    private javax.swing.JPanel PanelSuperior;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.ButtonGroup buttonGroup5;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel textoCadastroPergunta;
+    private javax.swing.JLabel textoDesenvolvimento;
+    private javax.swing.JLabel textoPergunta;
+    private javax.swing.JLabel textoResposta1;
+    private javax.swing.JLabel textoResposta2;
+    private javax.swing.JLabel textoResposta3;
+    private javax.swing.JLabel textoResposta4;
     // End of variables declaration//GEN-END:variables
 }

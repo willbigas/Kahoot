@@ -30,36 +30,36 @@ public class CadastroDisciplinaPanel extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        textoNome = new javax.swing.JLabel();
+        textoProfessor = new javax.swing.JLabel();
         CampoNomeDisciplina = new javax.swing.JTextField();
         CampoProfessor = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
+        PanelBotaoInferior = new javax.swing.JPanel();
         BotaoVoltar = new javax.swing.JButton();
         BotaoSalvar = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        PanelFundo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        textoDesenvolvimento = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel2.setText("Nome:");
+        textoNome.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        textoNome.setText("Nome:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(8, 8, 8, 8);
-        add(jLabel2, gridBagConstraints);
+        add(textoNome, gridBagConstraints);
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel3.setText("Professor:");
+        textoProfessor.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        textoProfessor.setText("Professor:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(8, 8, 8, 8);
-        add(jLabel3, gridBagConstraints);
+        add(textoProfessor, gridBagConstraints);
 
         CampoNomeDisciplina.setColumns(30);
         CampoNomeDisciplina.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -79,34 +79,37 @@ public class CadastroDisciplinaPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(8, 8, 8, 8);
         add(CampoProfessor, gridBagConstraints);
 
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        PanelBotaoInferior.setLayout(new java.awt.GridBagLayout());
 
         BotaoVoltar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        BotaoVoltar.setText("VOLTAR");
+        BotaoVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_voltar_32x32.png"))); // NOI18N
         BotaoVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoVoltarActionPerformed(evt);
             }
         });
-        jPanel1.add(BotaoVoltar, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 16);
+        PanelBotaoInferior.add(BotaoVoltar, gridBagConstraints);
 
         BotaoSalvar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        BotaoSalvar.setText("SALVAR");
+        BotaoSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_salvar_32x32.png"))); // NOI18N
         BotaoSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoSalvarActionPerformed(evt);
             }
         });
-        jPanel1.add(BotaoSalvar, new java.awt.GridBagConstraints());
+        PanelBotaoInferior.add(BotaoSalvar, new java.awt.GridBagConstraints());
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.insets = new java.awt.Insets(8, 8, 8, 8);
-        add(jPanel1, gridBagConstraints);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
+        add(PanelBotaoInferior, gridBagConstraints);
 
-        jPanel2.setLayout(new java.awt.GridBagLayout());
+        PanelFundo.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
         jLabel1.setText("CADASTRO DISCIPLINA");
@@ -115,24 +118,24 @@ public class CadastroDisciplinaPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel2.add(jLabel1, gridBagConstraints);
+        PanelFundo.add(jLabel1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(8, 8, 8, 8);
-        add(jPanel2, gridBagConstraints);
+        add(PanelFundo, gridBagConstraints);
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel4.setText("Desenvolvido por Agostinho, Adriene, kellison, William");
+        textoDesenvolvimento.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        textoDesenvolvimento.setText("Desenvolvido por Agostinho, Adriene, kellison, William");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(jLabel4, gridBagConstraints);
+        add(textoDesenvolvimento, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
@@ -197,11 +200,11 @@ public class CadastroDisciplinaPanel extends javax.swing.JPanel {
     private javax.swing.JButton BotaoVoltar;
     private javax.swing.JTextField CampoNomeDisciplina;
     private javax.swing.JTextField CampoProfessor;
+    private javax.swing.JPanel PanelBotaoInferior;
+    private javax.swing.JPanel PanelFundo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel textoDesenvolvimento;
+    private javax.swing.JLabel textoNome;
+    private javax.swing.JLabel textoProfessor;
     // End of variables declaration//GEN-END:variables
 }

@@ -27,21 +27,23 @@ public class MenuPanel extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        BotaoAdicionar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        BotaoAdicionarPergunta = new javax.swing.JButton();
+        BotaoJogar = new javax.swing.JButton();
+        textoEscolherOpcao = new javax.swing.JLabel();
         BotaoSair = new javax.swing.JButton();
         BotaoAssunto = new javax.swing.JButton();
         BotaoDisciplina = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        textoDesenvolvimento = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
-        BotaoAdicionar.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        BotaoAdicionar.setText("Cadastrar Pergunta");
-        BotaoAdicionar.addActionListener(new java.awt.event.ActionListener() {
+        BotaoAdicionarPergunta.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        BotaoAdicionarPergunta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
+        BotaoAdicionarPergunta.setText("Pergunta");
+        BotaoAdicionarPergunta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotaoAdicionarPergunta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoAdicionarActionPerformed(evt);
+                BotaoAdicionarPerguntaActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -49,26 +51,30 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
-        add(BotaoAdicionar, gridBagConstraints);
+        add(BotaoAdicionarPergunta, gridBagConstraints);
 
-        jButton2.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
-        jButton2.setText("Jogar!");
+        BotaoJogar.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        BotaoJogar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_jogar_128x128.png"))); // NOI18N
+        BotaoJogar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotaoJogar.setPreferredSize(new java.awt.Dimension(130, 130));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
-        add(jButton2, gridBagConstraints);
+        add(BotaoJogar, gridBagConstraints);
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
-        jLabel1.setText("Escolha uma opção!");
+        textoEscolherOpcao.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
+        textoEscolherOpcao.setText("Escolha uma opção!");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
-        add(jLabel1, gridBagConstraints);
+        add(textoEscolherOpcao, gridBagConstraints);
 
-        BotaoSair.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        BotaoSair.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        BotaoSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_sair_32x32.png"))); // NOI18N
         BotaoSair.setText("SAIR");
+        BotaoSair.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BotaoSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoSairActionPerformed(evt);
@@ -81,8 +87,10 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(BotaoSair, gridBagConstraints);
 
-        BotaoAssunto.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        BotaoAssunto.setText("Cadastrar Assunto");
+        BotaoAssunto.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        BotaoAssunto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
+        BotaoAssunto.setText("Assunto");
+        BotaoAssunto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BotaoAssunto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoAssuntoActionPerformed(evt);
@@ -95,8 +103,10 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(BotaoAssunto, gridBagConstraints);
 
-        BotaoDisciplina.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        BotaoDisciplina.setText("Cadastrar Disciplina");
+        BotaoDisciplina.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        BotaoDisciplina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
+        BotaoDisciplina.setText("Disciplina");
+        BotaoDisciplina.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BotaoDisciplina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoDisciplinaActionPerformed(evt);
@@ -109,25 +119,25 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(BotaoDisciplina, gridBagConstraints);
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel2.setText("Desenvolvido por Agostinho, Adriene, kellison, William");
+        textoDesenvolvimento.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        textoDesenvolvimento.setText("Desenvolvido por Agostinho, Adriene, kellison, William");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(jLabel2, gridBagConstraints);
+        add(textoDesenvolvimento, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotaoAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAdicionarActionPerformed
+    private void BotaoAdicionarPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAdicionarPerguntaActionPerformed
         try {
             Principal.panelCadastroPergunta();
             // TODO add your handling code here:
         } catch (Exception ex) {
             Logger.getLogger(MenuPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_BotaoAdicionarActionPerformed
+    }//GEN-LAST:event_BotaoAdicionarPerguntaActionPerformed
 
     private void BotaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairActionPerformed
         System.exit(0);
@@ -152,12 +162,12 @@ public class MenuPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotaoAdicionar;
+    private javax.swing.JButton BotaoAdicionarPergunta;
     private javax.swing.JButton BotaoAssunto;
     private javax.swing.JButton BotaoDisciplina;
+    private javax.swing.JButton BotaoJogar;
     private javax.swing.JButton BotaoSair;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel textoDesenvolvimento;
+    private javax.swing.JLabel textoEscolherOpcao;
     // End of variables declaration//GEN-END:variables
 }
