@@ -50,7 +50,7 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(BotaoAdicionar, gridBagConstraints);
 
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         jButton2.setText("Jogar!");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -59,9 +59,10 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(jButton2, gridBagConstraints);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 3, 36)); // NOI18N
         jLabel1.setText("Escolha uma opção!");
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(jLabel1, gridBagConstraints);
 

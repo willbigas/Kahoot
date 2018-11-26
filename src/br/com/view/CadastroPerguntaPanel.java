@@ -242,18 +242,20 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         } else {
             try {
                 List<String> respostas = new ArrayList<>();
+                Resposta resposta = new Resposta();
                 Pergunta pergunta = new Pergunta();
                 pergunta.setPergunta(CampoPergunta.getText());
                 int id = ComboAssunto.getSelectedIndex();
                 Assunto assunto = new Assunto();
                 assunto.setId(id);
                 pergunta.setAssunto(assunto);
-                respostas.add(CampoResposta1.getText());
-                respostas.add(CampoResposta2.getText());
-                respostas.add(CampoResposta3.getText());
-                respostas.add(CampoResposta3.getText());
+                resposta.setResposta(CampoResposta1.getText());
+                resposta.setResposta(CampoResposta2.getText());
+                resposta.setResposta(CampoResposta3.getText());
+                resposta.setResposta(CampoResposta4.getText());
+
                 pergunta.setTempo(0);
-                List<Resposta> RESPOSTAS = (List<Resposta>) (Object) respostas;
+                List<Resposta> RESPOSTAS = new ArrayList<>();
                 pergunta.setRespostas(RESPOSTAS);
                 boolean tudoOk = perguntaDao.inserir(pergunta);
                 if (tudoOk) {
