@@ -1,6 +1,13 @@
 package br.com.view;
 
+import br.com.kahoot.entidade.Assunto;
+import br.com.kahoot.entidade.Disciplina;
+import br.com.kahoot.entidade.Pergunta;
+import br.com.principal.ConfigurarServidor;
+import br.com.principal.ManterSocketNegocio;
 import br.com.principal.PrincipalServidor;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -9,6 +16,8 @@ import java.util.logging.Logger;
  * @author Alunos
  */
 public class MenuPanel extends javax.swing.JPanel {
+    
+    public static List<Pergunta> PERGUNTAS_EXPORTAR = new ArrayList<>();
 
     /**
      * Creates new form MenuPanel
@@ -34,6 +43,7 @@ public class MenuPanel extends javax.swing.JPanel {
         BotaoAssunto = new javax.swing.JButton();
         BotaoDisciplina = new javax.swing.JButton();
         textoDesenvolvimento = new javax.swing.JLabel();
+        BotaoExportarDados = new javax.swing.JButton();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -82,7 +92,7 @@ public class MenuPanel extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(BotaoSair, gridBagConstraints);
@@ -123,11 +133,27 @@ public class MenuPanel extends javax.swing.JPanel {
         textoDesenvolvimento.setText("Desenvolvido por Agostinho, Adriene, kellison, William");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(textoDesenvolvimento, gridBagConstraints);
+
+        BotaoExportarDados.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        BotaoExportarDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
+        BotaoExportarDados.setText("Exportar");
+        BotaoExportarDados.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotaoExportarDados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoExportarDadosActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
+        add(BotaoExportarDados, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoAdicionarPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAdicionarPerguntaActionPerformed
@@ -160,11 +186,25 @@ public class MenuPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_BotaoAssuntoActionPerformed
 
+    private void BotaoExportarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoExportarDadosActionPerformed
+        // TODO add your handling code here:
+        Object ObjParaEnviar = new Object();
+        
+        try {
+            ManterSocketNegocio.enviandoDadosViaSocket(PrincipalServidor.CONFIGURACAO_GLOBAL.getIp(),
+                    PrincipalServidor.CONFIGURACAO_GLOBAL.getPorta(), PERGUNTAS_EXPORTAR);
+        } catch (Exception exception) {
+        }
+        
+
+    }//GEN-LAST:event_BotaoExportarDadosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoAdicionarPergunta;
     private javax.swing.JButton BotaoAssunto;
     private javax.swing.JButton BotaoDisciplina;
+    private javax.swing.JButton BotaoExportarDados;
     private javax.swing.JButton BotaoJogar;
     private javax.swing.JButton BotaoSair;
     private javax.swing.JLabel textoDesenvolvimento;

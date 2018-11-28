@@ -221,6 +221,7 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
                     CampoNome.setText(null);
                     ComboDisciplina.setSelectedIndex(0);
+
                 }
             }
         } catch (Exception ex) {

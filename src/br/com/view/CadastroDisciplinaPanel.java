@@ -5,6 +5,9 @@ import br.com.kahoot.daoimpl.DisciplinaDaoImpl;
 import br.com.kahoot.entidade.Disciplina;
 import br.com.principal.PrincipalServidor;
 import java.awt.HeadlessException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -145,13 +148,17 @@ public class CadastroDisciplinaPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_BotaoVoltarActionPerformed
 
     private void BotaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSalvarActionPerformed
-        /**
-         * Recebendo da Inteface e salvando Disciplina no Banco de dados.
-         */
-        salvandoDisciplina();
+        try {
+            /**
+             * Recebendo da Inteface e salvando Disciplina no Banco de dados.
+             */
+            salvandoDisciplina();
+        } catch (Exception ex) {
+            Logger.getLogger(CadastroDisciplinaPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_BotaoSalvarActionPerformed
 
-    public void salvandoDisciplina() throws HeadlessException {
+    public void salvandoDisciplina() throws HeadlessException, Exception {
         if (CampoNomeDisciplina.getText().isEmpty() || CampoProfessor.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor preencha os campos para prosseguir");
         } else {
@@ -159,16 +166,16 @@ public class CadastroDisciplinaPanel extends javax.swing.JPanel {
              * Criando Objeto Disciplina.
              */
             Disciplina disciplina = criandoDisciplina();
+
             /**
              * Gravando Disciplina no banco de dados através do DisciplinaDao.
              *
              */
-
             gravandoDisciplinaNoBanco(disciplina);
         }
     }
 
-    public void gravandoDisciplinaNoBanco(Disciplina disciplina) throws HeadlessException {
+    public void gravandoDisciplinaNoBanco(Disciplina disciplina) throws HeadlessException, Exception {
         DisciplinaDao disciplinaDao = new DisciplinaDaoImpl();
 
         try {
@@ -185,6 +192,9 @@ public class CadastroDisciplinaPanel extends javax.swing.JPanel {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Problema com banco Verificar!!");
         }
+
+        List<Disciplina> DisciplinasDoBanco = (List<Disciplina>) (Object) disciplinaDao.pesquisarTodos();
+
     }
 
     public Disciplina criandoDisciplina() {

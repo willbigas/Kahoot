@@ -376,6 +376,15 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
                boolean inserido =  PERGUNTA_DAO.inserir(pergunta);
                if(inserido) {
                    JOptionPane.showMessageDialog(this, "Inserido com Sucesso!");
+                   
+                List<Pergunta> perguntasDoBanco = (List<Pergunta>) (Object)  PERGUNTA_DAO.pesquisarTodos();
+                   for (int i = 0; i < perguntasDoBanco.size(); i++) {
+                       Pergunta get = perguntasDoBanco.get(i);
+                       if (get.getPergunta().equals(pergunta.getPergunta())) {
+                           MenuPanel.PERGUNTAS_EXPORTAR.add(get);
+                       }
+                   }
+                   
                } else {
                    JOptionPane.showMessageDialog(null, "Não inseriu!");
                }
@@ -384,6 +393,8 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
             }
             
         }
+        
+        
 
     }//GEN-LAST:event_BotaoGravarActionPerformed
 

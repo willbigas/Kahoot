@@ -55,4 +55,11 @@ public class Pergunta implements Serializable{
         this.assunto = assunto;
     }
 
+    @Override
+    public String toString() {
+        return "Pergunta{" + "id=" + id + ", pergunta=" + pergunta + ", respostas=" + respostas + ", tempo=" + tempo + ", assunto=" + assunto + '}';
+    }
+    
+    
+
 }
