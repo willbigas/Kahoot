@@ -8,7 +8,6 @@ import br.com.view.CadastroPerguntaPanel;
 import br.com.view.FramePrincipal;
 import br.com.view.MenuPanel;
 import java.io.IOException;
-import java.util.List;
 import javax.swing.JFrame;
 
 /**

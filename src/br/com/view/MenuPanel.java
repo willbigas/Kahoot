@@ -1,9 +1,7 @@
 package br.com.view;
 
-import br.com.kahoot.entidade.Assunto;
-import br.com.kahoot.entidade.Disciplina;
 import br.com.kahoot.entidade.Pergunta;
-import br.com.principal.ConfigurarServidor;
+import br.com.principal.ManterKahootNegocio;
 import br.com.principal.ManterSocketNegocio;
 import br.com.principal.PrincipalServidor;
 import java.util.ArrayList;
@@ -188,11 +186,15 @@ public class MenuPanel extends javax.swing.JPanel {
 
     private void BotaoExportarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoExportarDadosActionPerformed
         // TODO add your handling code here:
-        Object ObjParaEnviar = new Object();
+        
+        
+        
+        
         
         try {
+            List<Object>  teste  = ManterKahootNegocio.pegandoDadosDoBanco();
             ManterSocketNegocio.enviandoDadosViaSocket(PrincipalServidor.CONFIGURACAO_GLOBAL.getIp(),
-                    PrincipalServidor.CONFIGURACAO_GLOBAL.getPorta(), PERGUNTAS_EXPORTAR);
+                    PrincipalServidor.CONFIGURACAO_GLOBAL.getPorta(), teste);
         } catch (Exception exception) {
         }
         
