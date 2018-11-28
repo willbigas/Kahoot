@@ -6,7 +6,7 @@ import br.com.kahoot.daoimpl.AssuntoDaoImpl;
 import br.com.kahoot.daoimpl.DisciplinaDaoImpl;
 import br.com.kahoot.entidade.Assunto;
 import br.com.kahoot.entidade.Disciplina;
-import br.com.principal.Principal;
+import br.com.principal.PrincipalServidor;
 import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.util.List;
@@ -165,7 +165,7 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
         /**
          * Aqui volta para o menu do projeto
          */
-        Principal.panelMenu();
+        PrincipalServidor.panelMenu();
         // TODO add your handling code here:
     }//GEN-LAST:event_BotaoVoltarActionPerformed
 
@@ -226,7 +226,7 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
         } catch (Exception ex) {
             System.out.println(ex.getStackTrace());
             try {
-                Principal.panelCadastroAssunto();
+                PrincipalServidor.panelCadastroAssunto();
             } catch (Exception exl) {
                 System.out.println(exl.getStackTrace());
             }

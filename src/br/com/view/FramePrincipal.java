@@ -1,6 +1,6 @@
 package br.com.view;
 
-import br.com.principal.Principal;
+import br.com.principal.PrincipalServidor;
 import javax.swing.JOptionPane;
 
 /**
@@ -135,7 +135,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         if (CampoNome.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor digite um nome para prosseguir!");
         } else {
-            Principal.panelMenu();
+            PrincipalServidor.panelMenu();
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_BotaoEntrarActionPerformed

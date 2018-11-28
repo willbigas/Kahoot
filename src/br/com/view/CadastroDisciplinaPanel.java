@@ -3,7 +3,7 @@ package br.com.view;
 import br.com.kahoot.dao.DisciplinaDao;
 import br.com.kahoot.daoimpl.DisciplinaDaoImpl;
 import br.com.kahoot.entidade.Disciplina;
-import br.com.principal.Principal;
+import br.com.principal.PrincipalServidor;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
@@ -139,7 +139,7 @@ public class CadastroDisciplinaPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
-        Principal.panelMenu();
+        PrincipalServidor.panelMenu();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_BotaoVoltarActionPerformed
@@ -177,7 +177,7 @@ public class CadastroDisciplinaPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Disciplina inserida com sucesso!");
                 disciplina.setNome(null);
                 disciplina.setProfessor(null);
-                Principal.panelCadastroDisciplina();
+                PrincipalServidor.panelCadastroDisciplina();
             } else {
                 JOptionPane.showMessageDialog(null, "Problemas ao cadastrar disciplina!");
             }

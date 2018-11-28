@@ -9,7 +9,7 @@ import br.com.kahoot.daoimpl.RespostaDaoImpl;
 import br.com.kahoot.entidade.Assunto;
 import br.com.kahoot.entidade.Pergunta;
 import br.com.kahoot.entidade.Resposta;
-import br.com.principal.Principal;
+import br.com.principal.PrincipalServidor;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -293,7 +293,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         /**
          * Volta para o menu do projeto
          */
-        Principal.panelMenu();
+        PrincipalServidor.panelMenu();
     }//GEN-LAST:event_BotaoVoltarActionPerformed
 
     private void BotaoGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoGravarActionPerformed

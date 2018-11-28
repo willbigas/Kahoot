@@ -1,6 +1,6 @@
 package br.com.view;
 
-import br.com.principal.Principal;
+import br.com.principal.PrincipalServidor;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -132,7 +132,7 @@ public class MenuPanel extends javax.swing.JPanel {
 
     private void BotaoAdicionarPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAdicionarPerguntaActionPerformed
         try {
-            Principal.panelCadastroPergunta();
+            PrincipalServidor.panelCadastroPergunta();
             // TODO add your handling code here:
         } catch (Exception ex) {
             Logger.getLogger(MenuPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -146,14 +146,14 @@ public class MenuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_BotaoSairActionPerformed
 
     private void BotaoDisciplinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoDisciplinaActionPerformed
-        Principal.panelCadastroDisciplina();
+        PrincipalServidor.panelCadastroDisciplina();
 
 // TODO add your handling code here:
     }//GEN-LAST:event_BotaoDisciplinaActionPerformed
 
     private void BotaoAssuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAssuntoActionPerformed
         try {
-            Principal.panelCadastroAssunto();
+            PrincipalServidor.panelCadastroAssunto();
             // TODO add your handling code here:
         } catch (Exception ex) {
             Logger.getLogger(MenuPanel.class.getName()).log(Level.SEVERE, null, ex);

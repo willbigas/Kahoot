@@ -1,10 +1,12 @@
 package br.com.kahoot.entidade;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Alunos
  */
-public class Assunto {
+public class Assunto implements Serializable {
 
     private Integer id;
     private String nome;
