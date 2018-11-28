@@ -1,5 +1,6 @@
 package br.com.principal;
 
+import br.com.kahoot.entidade.Assunto;
 import br.com.kahoot.entidade.Disciplina;
 import br.com.view.CadastroAssuntoPanel;
 import br.com.view.CadastroDisciplinaPanel;
@@ -7,10 +8,7 @@ import br.com.view.CadastroPerguntaPanel;
 import br.com.view.FramePrincipal;
 import br.com.view.MenuPanel;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.Scanner;
+import java.util.List;
 import javax.swing.JFrame;
 
 /**
@@ -24,9 +22,31 @@ public class PrincipalServidor {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
 
-        iniciandoServidor();
+//        iniciandoServidor();
+        List<Object> objRecebido =(List<Object>) ManterSocketNegocio.recebendoDadosViaSocket(8787);
+        for (int i = 0; i < objRecebido.size(); i++) {
+            Object get = objRecebido.get(i);
+            
+            if (get instanceof Disciplina) {
+
+            Disciplina disc = (Disciplina) get;
+            System.out.println("id da Disciplina : " + disc.getId());
+            System.out.println("Nome da Disciplina : " + disc.getNome());
+            System.out.println("Professor da Disciplina : " + disc.getProfessor());
+        }
+            if (get instanceof Assunto) {
+                Assunto assunto = (Assunto) get;
+                System.out.println("Id do Assunto :" + assunto.getId());
+                System.out.println("Nome do Assunto :" + assunto.getNome());
+                System.out.println("Disciplina do Assunto :" + assunto.getDisciplina().getNome());
+            } else {
+                continue;
+            }
+            
+        }
+        
 
         // TODO code application logic here
         frame = new FramePrincipal();
@@ -34,23 +54,6 @@ public class PrincipalServidor {
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-
-    }
-
-    private static void iniciandoServidor() throws IOException, ClassNotFoundException {
-        ServerSocket servidor = new ServerSocket(8787);
-        System.out.println("Servidor Iniciado");
-        Socket cliente = servidor.accept();
-        ObjectInputStream input = new ObjectInputStream(cliente.getInputStream());
-        Object objRecebido = input.readObject();
-        Disciplina discipinaRecebida = (Disciplina) objRecebido;
-        System.out.println(discipinaRecebida.getId());
-        System.out.println(discipinaRecebida.getNome());
-        System.out.println(discipinaRecebida.getProfessor());
-        System.out.println(cliente.getInetAddress().getHostAddress() + ":" + objRecebido.toString());
-        servidor.close();
-        cliente.close();
-        System.out.println("Servidor Encerrado!");
 
     }
 
