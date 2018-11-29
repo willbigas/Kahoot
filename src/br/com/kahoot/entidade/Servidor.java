@@ -1,6 +1,8 @@
 package br.com.kahoot.entidade;
 
 /**
+ * Classe servidor que estabele uma padrão de conexão via socket entre aplicacao
+ * cliente e aplicacao servidor.
  *
  * @author William
  */

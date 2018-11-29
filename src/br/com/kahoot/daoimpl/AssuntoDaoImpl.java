@@ -12,12 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Classe de Conexão com o Banco via Direct Acess Object da Entidade Assunto
  *
- * @author Alunos
+ * @author William Bigas Mauro
+ * @author Agostinho Detofano Junior
+ * @since 29/11/2018
  */
-public class AssuntoDaoImpl implements AssuntoDao{
-    
-    
+public class AssuntoDaoImpl implements AssuntoDao {
+
     private Connection conexao;
 
     @Override
@@ -65,7 +67,7 @@ public class AssuntoDaoImpl implements AssuntoDao{
 
     @Override
     public Assunto pesquisar(Integer id) throws Exception {
-       DisciplinaDao disciplinaDao = new DisciplinaDaoImpl();
+        DisciplinaDao disciplinaDao = new DisciplinaDaoImpl();
         try {
             conexao = SessionFactory.getConnection();
             PreparedStatement statement = conexao.prepareStatement(
@@ -101,7 +103,7 @@ public class AssuntoDaoImpl implements AssuntoDao{
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 Assunto assunto = new Assunto();
-                
+
                 assunto.setNome(rs.getString("nome"));
                 assunto.setId(rs.getInt("id"));
                 Integer idDisciplina = rs.getInt("id_disciplina");

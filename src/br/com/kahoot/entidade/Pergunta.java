@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  *
- * @author Alunos
+ * @author William
  */
 public class Pergunta implements Serializable{
 

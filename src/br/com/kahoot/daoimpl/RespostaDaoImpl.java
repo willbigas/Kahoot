@@ -13,8 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Classe de Conexão com o Banco via Direct Acess Object da Entidade Resposta
  *
- * @author Alunos
+ * @author William Bigas Mauro
+ * @author Agostinho Detofano Junior
+ * @since 29/11/2018
  */
 public class RespostaDaoImpl implements RespostaDao {
 

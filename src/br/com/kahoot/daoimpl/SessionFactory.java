@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.kahoot.daoimpl;
 
 import java.sql.Connection;
@@ -12,8 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
+ * Classe de parametros de conexão com o Banco de dados MYSQL.
  *
- * @author Felipe
+ * @author William Bigas Mauro
+ * @author Agostinho Detófano Junior
+ * @since 29/11/2018
  */
 public class SessionFactory {
 

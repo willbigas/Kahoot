@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.kahoot.negocio;
 
 import java.io.IOException;
@@ -13,11 +8,22 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
+ * Classe de Funcoes que Recebem e Enviam Dados via ServerSocket
  *
- * @author William
+ * @author William Bigas Mauro
+ * @since 29/11/2018
  */
 public class ManterSocketNegocio {
 
+    /**
+     * Funcao que Cria um Server Socket e fica Escutando uma determinada porta.
+     *
+     * @param porta
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     * @throws InterruptedException
+     */
     public static Object recebendoDadosViaSocket(Integer porta) throws IOException, ClassNotFoundException, InterruptedException {
         ServerSocket servidor = new ServerSocket(porta);
         Socket entradaDados = servidor.accept();
@@ -28,14 +34,22 @@ public class ManterSocketNegocio {
         return objRecebido;
     }
 
+    /**
+     * Funcao que envia arquivos para um IP/Porta via ServerSocket.
+     *
+     * @param enderecoIp
+     * @param porta
+     * @param objParaEnviar
+     * @throws Exception
+     */
     public static void enviandoDadosViaSocket(String enderecoIp, Integer porta, Object objParaEnviar) throws Exception {
         InetAddress endereco = InetAddress.getByName(enderecoIp);
         Socket saidaDados = new Socket(endereco, porta);
-        ObjectOutputStream saida = new ObjectOutputStream(saidaDados.getOutputStream()); // saida de objeto da classe cliente
+        ObjectOutputStream saida = new ObjectOutputStream(saidaDados.getOutputStream());
         saida.flush();
         saida.writeObject(objParaEnviar);
         saida.close();
-        saidaDados.close(); // fechando acesso ao servidor
+        saidaDados.close();
 
     }
 

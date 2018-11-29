@@ -10,6 +10,7 @@ import java.io.IOException;
 import javax.swing.JFrame;
 
 /**
+ * Classe Principal que Serta a configuracao socket e inicializa
  *
  * @author Alunos Version 1.0
  */
@@ -30,7 +31,9 @@ public class PrincipalServidor {
         CONFIGURACAO_GLOBAL.setIp("localhost");
         CONFIGURACAO_GLOBAL.setPorta(8787);
 
-        // TODO code application logic here
+        /**
+         * Frame Principal - Janela Principal
+         */
         frame = new FramePrincipal();
         frame.setTitle("KAHOOT!");
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -39,24 +42,40 @@ public class PrincipalServidor {
 
     }
 
+    /**
+     * Painel de Menu com as Opcoes
+     */
     public static void panelMenu() {
         MenuPanel panel = new MenuPanel();
         frame.setContentPane(panel);
         frame.setVisible(true);
     }
 
+    /**
+     * Panel de Cadastro de Perguntas
+     *
+     * @throws Exception
+     */
     public static void panelCadastroPergunta() throws Exception {
         CadastroPerguntaPanel panel = new CadastroPerguntaPanel();
         frame.setContentPane(panel);
         frame.setVisible(true);
     }
 
+    /**
+     * Panel de cadastro de Disciplinas
+     */
     public static void panelCadastroDisciplina() {
         CadastroDisciplinaPanel panel = new CadastroDisciplinaPanel();
         frame.setContentPane(panel);
         frame.setVisible(true);
     }
 
+    /**
+     * Painel de Cadastro de Assunto
+     *
+     * @throws Exception
+     */
     public static void panelCadastroAssunto() throws Exception {
         CadastroAssuntoPanel panel = new CadastroAssuntoPanel();
         frame.setContentPane(panel);

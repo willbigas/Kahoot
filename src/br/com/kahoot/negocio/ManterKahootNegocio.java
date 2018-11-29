@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.kahoot.negocio;
 
 import br.com.kahoot.dao.AssuntoDao;
@@ -23,8 +18,11 @@ import br.com.kahoot.principal.PrincipalServidor;
 import java.util.List;
 
 /**
+ * Classe de negocio que envia e recebe determinadas listas de Classes via
+ * ServerSocket
  *
- * @author Alunos
+ * @author William Bigas Mauro
+ * @since 29/11/2018
  */
 public class ManterKahootNegocio {
 
@@ -35,7 +33,10 @@ public class ManterKahootNegocio {
     public static UsuarioDao USUARIO_DAO = new UsuarioDaoImpl();
 
     /**
-     * Disciplinas via Socket *
+     * Enviando Disciplinas via Socket
+     *
+     * @return
+     * @throws Exception
      */
     public static boolean enviandoDisciplinasViaSocket() throws Exception {
         List<Disciplina> disciplinas = (List<Disciplina>) (Object) DISCIPLINA_DAO.pesquisarTodos();
@@ -49,6 +50,12 @@ public class ManterKahootNegocio {
 
     }
 
+    /**
+     * Recebendo Disciplinas via Socket
+     *
+     * @return
+     * @throws Exception
+     */
     public static List<Disciplina> recebendoDisciplinasViaSocket() throws Exception {
         List<Disciplina> disciplinas = (List<Disciplina>) ManterSocketNegocio.recebendoDadosViaSocket(
                 PrincipalServidor.CONFIGURACAO_GLOBAL.getPorta());
@@ -56,7 +63,10 @@ public class ManterKahootNegocio {
     }
 
     /**
-     * Perguntas via Socket *
+     * Enviando Perguntas via Socket.
+     *
+     * @return
+     * @throws Exception
      */
     public static boolean enviandoPerguntasViaSocket() throws Exception {
         List<Pergunta> perguntas = (List<Pergunta>) (Object) PERGUNTA_DAO.pesquisarTodos();
@@ -70,6 +80,12 @@ public class ManterKahootNegocio {
 
     }
 
+    /**
+     * Recebendo Perguntas via Socket
+     *
+     * @return
+     * @throws Exception
+     */
     public static List<Pergunta> recebendoPerguntasViaSocket() throws Exception {
         List<Pergunta> perguntas = (List<Pergunta>) ManterSocketNegocio.recebendoDadosViaSocket(
                 PrincipalServidor.CONFIGURACAO_GLOBAL.getPorta());
@@ -77,7 +93,10 @@ public class ManterKahootNegocio {
     }
 
     /**
-     * Respostas Via Socket *
+     * Enviando respostas via socket.
+     *
+     * @return
+     * @throws Exception
      */
     public static boolean enviandoRespostasViaSocket() throws Exception {
         List<Resposta> respostas = (List<Resposta>) (Object) RESPOSTA_DAO.pesquisarTodos();
@@ -91,6 +110,12 @@ public class ManterKahootNegocio {
 
     }
 
+    /**
+     * Recebendo respostas via socket
+     *
+     * @return
+     * @throws Exception
+     */
     public static List<Resposta> recebendoRespostasViaSocket() throws Exception {
         List<Resposta> respostas = (List<Resposta>) ManterSocketNegocio.recebendoDadosViaSocket(
                 PrincipalServidor.CONFIGURACAO_GLOBAL.getPorta());
@@ -98,7 +123,10 @@ public class ManterKahootNegocio {
     }
 
     /**
-     * Usuario via Socket *
+     * Enviando Usuarios via Socket.
+     *
+     * @return
+     * @throws Exception
      */
     public static boolean enviandoUsuariosViaSocket() throws Exception {
         List<Usuario> usuarios = (List<Usuario>) (Object) USUARIO_DAO.pesquisarTodos();
@@ -111,7 +139,13 @@ public class ManterKahootNegocio {
         }
 
     }
-    
+
+    /**
+     * Recebendo uma Lista de Usuarios via Socket.
+     *
+     * @return
+     * @throws Exception
+     */
     public static List<Usuario> recebendoUsuariosViaSocket() throws Exception {
         List<Usuario> usuarios = (List<Usuario>) ManterSocketNegocio.recebendoDadosViaSocket(
                 PrincipalServidor.CONFIGURACAO_GLOBAL.getPorta());

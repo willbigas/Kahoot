@@ -10,11 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Classe de Conexão com o Banco via Direct Acess Object da Entidade Usuario
  *
- * @author Alunos
+ * @author William Bigas Mauro
+ * @author Agostinho Detofano Junior
+ * @since 29/11/2018
  */
-public class UsuarioDaoImpl implements UsuarioDao{
-    
+public class UsuarioDaoImpl implements UsuarioDao {
+
     private Connection conexao;
 
     @Override
@@ -131,7 +134,5 @@ public class UsuarioDaoImpl implements UsuarioDao{
         }
         return false;
     }
-    
-    
-    
+
 }
