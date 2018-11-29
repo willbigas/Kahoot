@@ -15,6 +15,7 @@ import br.com.kahoot.entidade.Pergunta;
 import br.com.kahoot.entidade.Resposta;
 import br.com.kahoot.entidade.Usuario;
 import br.com.kahoot.principal.PrincipalServidor;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -151,5 +152,22 @@ public class ManterKahootNegocio {
                 PrincipalServidor.CONFIGURACAO_GLOBAL.getPorta());
         return usuarios;
     }
+    
+    
+    
+     public static List<Usuario> pesquisarUsuario(String termo) throws Exception {
+        List<Usuario> retorno = new ArrayList<>();
+        List<?> objs = USUARIO_DAO.pesquisarTodos();
+        List<Usuario> USUARIOS = (List<Usuario>) (Object) objs;
+
+        for (Usuario usuario : USUARIOS) {
+            if (usuario.getNome().toLowerCase().contains(termo.toLowerCase()) || usuario.getIp().contains(termo.toLowerCase())) {
+                retorno.add(usuario);
+            }
+
+        }
+        return retorno;
+    }
+
 
 }

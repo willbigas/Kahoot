@@ -134,5 +134,31 @@ public class UsuarioDaoImpl implements UsuarioDao {
         }
         return false;
     }
+    
+    
+    
+    public List<Object> pesquisarTodosOrdenadoPorNome() throws Exception {
+        List<Object> usuarios = new ArrayList<>();
+        try {
+            conexao = SessionFactory.getConnection();
+            PreparedStatement statement = conexao.prepareStatement(
+                    "select * from usuario order by pontos desc");
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Usuario user = new Usuario();
+                user.setNome(rs.getString("nome"));
+                user.setPontos(rs.getInt("pontos"));
+                user.setIp(rs.getString("ip"));
+                user.setId(rs.getInt("id"));
+                usuarios.add(user);
+            }
+            return usuarios;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            conexao.close();
+        }
+        return usuarios;
+    }
 
 }

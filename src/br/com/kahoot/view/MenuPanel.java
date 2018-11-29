@@ -1,6 +1,9 @@
 package br.com.kahoot.view;
 
+import br.com.kahoot.dao.UsuarioDao;
+import br.com.kahoot.daoimpl.UsuarioDaoImpl;
 import br.com.kahoot.entidade.Pergunta;
+import br.com.kahoot.entidade.Usuario;
 import br.com.kahoot.negocio.ManterKahootNegocio;
 import br.com.kahoot.principal.PrincipalServidor;
 import java.util.ArrayList;
@@ -13,13 +16,13 @@ import java.util.logging.Logger;
  * @author William
  */
 public class MenuPanel extends javax.swing.JPanel {
-
-    public static List<Pergunta> PERGUNTAS_EXPORTAR = new ArrayList<>();
-
+    
+    public static UsuarioDao usuarioDao = new UsuarioDaoImpl();
+    
     public MenuPanel() {
         initComponents();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -33,6 +36,7 @@ public class MenuPanel extends javax.swing.JPanel {
         BotaoDisciplina = new javax.swing.JButton();
         textoDesenvolvimento = new javax.swing.JLabel();
         BotaoExportarDados = new javax.swing.JButton();
+        BotaoPlacarGeral = new javax.swing.JButton();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -81,7 +85,7 @@ public class MenuPanel extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(BotaoSair, gridBagConstraints);
@@ -122,7 +126,7 @@ public class MenuPanel extends javax.swing.JPanel {
         textoDesenvolvimento.setText("Desenvolvido por Agostinho, Adriene, kellison, William");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -143,6 +147,22 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(BotaoExportarDados, gridBagConstraints);
+
+        BotaoPlacarGeral.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        BotaoPlacarGeral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
+        BotaoPlacarGeral.setText("Placar Geral");
+        BotaoPlacarGeral.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotaoPlacarGeral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoPlacarGeralActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
+        add(BotaoPlacarGeral, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoAdicionarPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAdicionarPerguntaActionPerformed
@@ -180,6 +200,28 @@ public class MenuPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_BotaoExportarDadosActionPerformed
 
+    private void BotaoPlacarGeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoPlacarGeralActionPerformed
+        // TODO add your handling code here:
+        
+        Usuario user1 = new Usuario();
+        user1.setId(1);
+        user1.setNome("Kelisson");
+        user1.setPontos(250);
+        user1.setIp("192.168.0.200");
+        
+        try {
+            usuarioDao.inserir(user1);
+        } catch (Exception exception) {
+        }
+        
+        try {
+            List<Usuario> usuarios = (List<Usuario>) (Object) usuarioDao.pesquisarTodosOrdenadoPorNome();
+            PrincipalServidor.panelClassificacaoGeral(usuarios);
+        } catch (Exception exception) {
+        }
+
+    }//GEN-LAST:event_BotaoPlacarGeralActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoAdicionarPergunta;
@@ -187,6 +229,7 @@ public class MenuPanel extends javax.swing.JPanel {
     private javax.swing.JButton BotaoDisciplina;
     private javax.swing.JButton BotaoExportarDados;
     private javax.swing.JButton BotaoJogar;
+    private javax.swing.JButton BotaoPlacarGeral;
     private javax.swing.JButton BotaoSair;
     private javax.swing.JLabel textoDesenvolvimento;
     private javax.swing.JLabel textoEscolherOpcao;
