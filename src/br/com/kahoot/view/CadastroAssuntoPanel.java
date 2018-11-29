@@ -65,7 +65,7 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel2.setText("Nome:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -75,7 +75,7 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
         add(jLabel2, gridBagConstraints);
 
         CampoNome.setColumns(20);
-        CampoNome.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        CampoNome.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -84,7 +84,7 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
         add(CampoNome, gridBagConstraints);
 
-        ComboDisciplina.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        ComboDisciplina.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         ComboDisciplina.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione uma disciplina" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -113,6 +113,7 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
 
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
+        BotaoVoltar.setBackground(new java.awt.Color(204, 204, 204));
         BotaoVoltar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         BotaoVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_voltar_32x32.png"))); // NOI18N
         BotaoVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -124,6 +125,7 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel2.add(BotaoVoltar, gridBagConstraints);
 
+        BotaoSalvar.setBackground(new java.awt.Color(204, 204, 204));
         BotaoSalvar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         BotaoSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_salvar_32x32.png"))); // NOI18N
         BotaoSalvar.addActionListener(new java.awt.event.ActionListener() {

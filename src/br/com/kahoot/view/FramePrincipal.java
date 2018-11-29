@@ -42,7 +42,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        textoNome.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        textoNome.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         textoNome.setText("Nome:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -51,7 +51,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         getContentPane().add(textoNome, gridBagConstraints);
 
         CampoNome.setColumns(10);
-        CampoNome.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        CampoNome.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -61,6 +61,7 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         PainelBotoesInferior.setLayout(new java.awt.GridBagLayout());
 
+        BotaoSair.setBackground(new java.awt.Color(255, 255, 255));
         BotaoSair.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         BotaoSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_sairAplicacao.png"))); // NOI18N
         BotaoSair.addActionListener(new java.awt.event.ActionListener() {
@@ -75,6 +76,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         PainelBotoesInferior.add(BotaoSair, gridBagConstraints);
 
+        BotaoEntrar.setBackground(new java.awt.Color(255, 255, 255));
         BotaoEntrar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         BotaoEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_entrar_48x48.png"))); // NOI18N
         BotaoEntrar.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +122,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(11, 12, 11, 13);
         getContentPane().add(textoDesenvolvimento, gridBagConstraints);
 
         pack();

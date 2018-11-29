@@ -32,7 +32,7 @@ public class PrincipalServidor {
          * Configuracao de Ip e porta Aqui!
          */
         CONFIGURACAO_GLOBAL.setIp("192.168.109.47");
-        CONFIGURACAO_GLOBAL.setPorta(8787);
+        CONFIGURACAO_GLOBAL.setPorta(8989);
 
         /**
          * Frame Principal - Janela Principal
