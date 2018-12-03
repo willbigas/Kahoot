@@ -61,7 +61,6 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         BotaoVoltar = new javax.swing.JButton();
         BotaoSalvar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -144,16 +143,6 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
         add(jPanel2, gridBagConstraints);
-
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel3.setText("Desenvolvido por Agostinho, Adriene, kellison, William");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(jLabel3, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
@@ -231,7 +220,6 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> ComboDisciplina;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

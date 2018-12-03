@@ -31,7 +31,6 @@ public class FramePrincipal extends javax.swing.JFrame {
         BotaoEntrar = new javax.swing.JButton();
         PainelImagem = new javax.swing.JPanel();
         img_Quiz = new javax.swing.JLabel();
-        textoDesenvolvimento = new javax.swing.JLabel();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -116,15 +115,6 @@ public class FramePrincipal extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 2;
         getContentPane().add(PainelImagem, gridBagConstraints);
 
-        textoDesenvolvimento.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        textoDesenvolvimento.setText("Desenvolvido por Agostinho, Adriene, kellison, William");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(11, 12, 11, 13);
-        getContentPane().add(textoDesenvolvimento, gridBagConstraints);
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -181,7 +171,6 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JLabel textoDesenvolvimento;
     private javax.swing.JLabel textoNome;
     // End of variables declaration//GEN-END:variables
 }

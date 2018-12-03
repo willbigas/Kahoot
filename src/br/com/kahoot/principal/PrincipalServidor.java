@@ -8,7 +8,6 @@ import br.com.kahoot.view.CadastroPerguntaPanel;
 import br.com.kahoot.view.FramePrincipal;
 import br.com.kahoot.view.MenuPanel;
 import br.com.kahoot.view.ClassificacaoGeralPainel;
-import java.io.IOException;
 import java.util.List;
 import javax.swing.JFrame;
 
@@ -26,7 +25,7 @@ public class PrincipalServidor {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+    public static void main(String[] args) throws Exception {
 
         /**
          * Configuracao de Ip e porta Aqui!

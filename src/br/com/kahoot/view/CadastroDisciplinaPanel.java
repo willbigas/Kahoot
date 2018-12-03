@@ -37,7 +37,6 @@ public class CadastroDisciplinaPanel extends javax.swing.JPanel {
         BotaoSalvar = new javax.swing.JButton();
         PanelFundo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        textoDesenvolvimento = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -124,16 +123,6 @@ public class CadastroDisciplinaPanel extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(8, 8, 8, 8);
         add(PanelFundo, gridBagConstraints);
-
-        textoDesenvolvimento.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        textoDesenvolvimento.setText("Desenvolvido por Agostinho, Adriene, kellison, William");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(textoDesenvolvimento, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
@@ -213,7 +202,6 @@ public class CadastroDisciplinaPanel extends javax.swing.JPanel {
     private javax.swing.JPanel PanelBotaoInferior;
     private javax.swing.JPanel PanelFundo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel textoDesenvolvimento;
     private javax.swing.JLabel textoNome;
     private javax.swing.JLabel textoProfessor;
     // End of variables declaration//GEN-END:variables

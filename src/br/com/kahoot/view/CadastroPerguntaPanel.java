@@ -71,7 +71,6 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         BotaoResposta2 = new javax.swing.JRadioButton();
         BotaoResposta3 = new javax.swing.JRadioButton();
         BotaoResposta4 = new javax.swing.JRadioButton();
-        textoDesenvolvimento = new javax.swing.JLabel();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -259,15 +258,6 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         add(PanelCorpo, gridBagConstraints);
-
-        textoDesenvolvimento.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        textoDesenvolvimento.setText("Desenvolvido por Agostinho, Adriene, kellison, William");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(textoDesenvolvimento, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
@@ -286,6 +276,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
                 || CampoResposta2.getText().isEmpty()
                 || CampoResposta3.getText().isEmpty()
                 || CampoResposta4.getText().isEmpty()) {
+            
             JOptionPane.showMessageDialog(null, "Por favor preencha todos os campos para prosseguir!");
             /**
              *
@@ -303,10 +294,23 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
             pergunta.setTempo(1); // falta implementar!
             validandoInsertNoBanco(pergunta);
 
+            LimpandoCampos();
         }
 
 
     }//GEN-LAST:event_BotaoGravarActionPerformed
+
+    public void LimpandoCampos() {
+        CampoPergunta.setText(null);
+        CampoResposta1.setText(null);
+        CampoResposta2.setText(null);
+        CampoResposta3.setText(null);
+        CampoResposta4.setText(null);
+        BotaoResposta1.setSelected(false);
+        BotaoResposta2.setSelected(false);
+        BotaoResposta3.setSelected(false);
+        BotaoResposta4.setSelected(false);
+    }
 
     /**
      * Fazendo a validacao do Insert no banco.
@@ -503,7 +507,6 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
     private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.ButtonGroup buttonGroup5;
     private javax.swing.JLabel textoCadastroPergunta;
-    private javax.swing.JLabel textoDesenvolvimento;
     private javax.swing.JLabel textoPergunta;
     private javax.swing.JLabel textoResposta1;
     private javax.swing.JLabel textoResposta2;

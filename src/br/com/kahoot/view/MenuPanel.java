@@ -2,14 +2,13 @@ package br.com.kahoot.view;
 
 import br.com.kahoot.dao.UsuarioDao;
 import br.com.kahoot.daoimpl.UsuarioDaoImpl;
-import br.com.kahoot.entidade.Pergunta;
 import br.com.kahoot.entidade.Usuario;
 import br.com.kahoot.negocio.ManterKahootNegocio;
 import br.com.kahoot.principal.PrincipalServidor;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,7 +33,6 @@ public class MenuPanel extends javax.swing.JPanel {
         BotaoSair = new javax.swing.JButton();
         BotaoAssunto = new javax.swing.JButton();
         BotaoDisciplina = new javax.swing.JButton();
-        textoDesenvolvimento = new javax.swing.JLabel();
         BotaoExportarDados = new javax.swing.JButton();
         BotaoPlacarGeral = new javax.swing.JButton();
 
@@ -127,16 +125,6 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(BotaoDisciplina, gridBagConstraints);
 
-        textoDesenvolvimento.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        textoDesenvolvimento.setText("Desenvolvido por Agostinho, Adriene, kellison, William");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        add(textoDesenvolvimento, gridBagConstraints);
-
         BotaoExportarDados.setBackground(new java.awt.Color(255, 255, 255));
         BotaoExportarDados.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         BotaoExportarDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
@@ -201,11 +189,19 @@ public class MenuPanel extends javax.swing.JPanel {
          * Main
          */
         try {
-
-            ManterKahootNegocio.enviandoPerguntasViaSocket();
-            ManterKahootNegocio.enviandoRespostasViaSocket();
+            JOptionPane.showMessageDialog(null, "Enviando arquivos!, Apertar OK para prosseguir!");
             ManterKahootNegocio.enviandoDisciplinasViaSocket();
+            Thread.sleep(5000);
+            JOptionPane.showMessageDialog(null, "Enviado Disciplinas com sucesso, Apertar OK para prosseguir!");
+            ManterKahootNegocio.enviandoRespostasViaSocket();
+            Thread.sleep(5000);
+            JOptionPane.showMessageDialog(null, "Enviado Respostas com sucesso, Apertar OK para prosseguir!");
+            ManterKahootNegocio.enviandoPerguntasViaSocket();
+            Thread.sleep(5000);
+            JOptionPane.showMessageDialog(null, "Enviado Perguntas com sucesso, Apertar OK para prosseguir!");
             ManterKahootNegocio.enviandoUsuariosViaSocket();
+            Thread.sleep(5000);
+            JOptionPane.showMessageDialog(null, "Enviado Usuarios com sucesso, Apertar OK para prosseguir!");
 
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -232,7 +228,6 @@ public class MenuPanel extends javax.swing.JPanel {
     private javax.swing.JButton BotaoJogar;
     private javax.swing.JButton BotaoPlacarGeral;
     private javax.swing.JButton BotaoSair;
-    private javax.swing.JLabel textoDesenvolvimento;
     private javax.swing.JLabel textoEscolherOpcao;
     // End of variables declaration//GEN-END:variables
 }
