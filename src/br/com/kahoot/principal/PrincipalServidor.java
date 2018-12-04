@@ -10,6 +10,7 @@ import br.com.kahoot.view.MenuPanel;
 import br.com.kahoot.view.ClassificacaoGeralPainel;
 import java.util.List;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  * Classe Principal que Serta a configuracao socket e inicializa
@@ -17,9 +18,9 @@ import javax.swing.JFrame;
  * @author Alunos Version 1.0
  */
 public class PrincipalServidor {
-
+    
     private static FramePrincipal frame;
-
+    
     public static Servidor CONFIGURACAO_GLOBAL = new Servidor();
 
     /**
@@ -30,8 +31,10 @@ public class PrincipalServidor {
         /**
          * Configuracao de Ip e porta Aqui!
          */
-        CONFIGURACAO_GLOBAL.setIp("localhost");
-        CONFIGURACAO_GLOBAL.setPorta(8989);
+        String ip = JOptionPane.showInputDialog("Digite o IP do Servidor");
+        String porta = JOptionPane.showInputDialog("Digite a Porta do Servidor");
+        CONFIGURACAO_GLOBAL.setIp(ip);
+        CONFIGURACAO_GLOBAL.setPorta(Integer.valueOf(porta));
 
         /**
          * Frame Principal - Janela Principal
@@ -41,7 +44,7 @@ public class PrincipalServidor {
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-
+        
     }
 
     /**
@@ -83,7 +86,7 @@ public class PrincipalServidor {
         frame.setContentPane(panel);
         frame.setVisible(true);
     }
-
+    
     public static void panelClassificacaoGeral(List<Usuario> usuarios) throws Exception {
         ClassificacaoGeralPainel panel = new ClassificacaoGeralPainel(usuarios);
         frame.setContentPane(panel);

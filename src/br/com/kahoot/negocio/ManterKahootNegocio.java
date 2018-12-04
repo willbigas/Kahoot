@@ -147,15 +147,13 @@ public class ManterKahootNegocio {
      * @return
      * @throws Exception
      */
-    public static List<Usuario> recebendoUsuariosViaSocket() throws Exception {
-        List<Usuario> usuarios = (List<Usuario>) ManterSocketNegocio.recebendoDadosViaSocket(
+    public static Usuario recebendoUsuarioViaSocket() throws Exception {
+        Usuario usuario = (Usuario) ManterSocketNegocio.recebendoDadosViaSocket(
                 PrincipalServidor.CONFIGURACAO_GLOBAL.getPorta());
-        return usuarios;
+        return usuario;
     }
-    
-    
-    
-     public static List<Usuario> pesquisarUsuario(String termo) throws Exception {
+
+    public static List<Usuario> pesquisarUsuario(String termo) throws Exception {
         List<Usuario> retorno = new ArrayList<>();
         List<?> objs = USUARIO_DAO.pesquisarTodos();
         List<Usuario> USUARIOS = (List<Usuario>) (Object) objs;
@@ -168,6 +166,5 @@ public class ManterKahootNegocio {
         }
         return retorno;
     }
-
 
 }

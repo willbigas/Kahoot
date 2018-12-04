@@ -35,6 +35,7 @@ public class MenuPanel extends javax.swing.JPanel {
         BotaoDisciplina = new javax.swing.JButton();
         BotaoExportarDados = new javax.swing.JButton();
         BotaoPlacarGeral = new javax.swing.JButton();
+        BotaoImportarDados = new javax.swing.JButton();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -86,7 +87,7 @@ public class MenuPanel extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(BotaoSair, gridBagConstraints);
@@ -137,7 +138,7 @@ public class MenuPanel extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(BotaoExportarDados, gridBagConstraints);
@@ -154,10 +155,27 @@ public class MenuPanel extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(BotaoPlacarGeral, gridBagConstraints);
+
+        BotaoImportarDados.setBackground(new java.awt.Color(255, 255, 255));
+        BotaoImportarDados.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        BotaoImportarDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
+        BotaoImportarDados.setText("Importar");
+        BotaoImportarDados.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotaoImportarDados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoImportarDadosActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
+        add(BotaoImportarDados, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoAdicionarPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAdicionarPerguntaActionPerformed
@@ -219,12 +237,32 @@ public class MenuPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_BotaoPlacarGeralActionPerformed
 
+    private void BotaoImportarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoImportarDadosActionPerformed
+        // TODO add your handling code here:
+        UsuarioDao usuarioDao = new UsuarioDaoImpl();
+        
+        try {
+            Usuario user = ManterKahootNegocio.recebendoUsuarioViaSocket();
+            JOptionPane.showMessageDialog(this, "Usuario recebido via rede!");
+          boolean inserido = usuarioDao.inserir(user);
+          if (inserido) {
+              JOptionPane.showMessageDialog(this, "Usuario Inserido no banco");
+          } else {
+              JOptionPane.showMessageDialog(this, "Deu Ruim , verifique!");
+          }
+        } catch (Exception exception) {
+            JOptionPane.showMessageDialog(this, "Algo de errado não está certo.");
+        }
+        
+    }//GEN-LAST:event_BotaoImportarDadosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoAdicionarPergunta;
     private javax.swing.JButton BotaoAssunto;
     private javax.swing.JButton BotaoDisciplina;
     private javax.swing.JButton BotaoExportarDados;
+    private javax.swing.JButton BotaoImportarDados;
     private javax.swing.JButton BotaoJogar;
     private javax.swing.JButton BotaoPlacarGeral;
     private javax.swing.JButton BotaoSair;
