@@ -217,9 +217,6 @@ public class MenuPanel extends javax.swing.JPanel {
             ManterKahootNegocio.enviandoPerguntasViaSocket();
             Thread.sleep(5000);
             JOptionPane.showMessageDialog(null, "Enviado Perguntas com sucesso, Apertar OK para prosseguir!");
-            ManterKahootNegocio.enviandoUsuariosViaSocket();
-            Thread.sleep(5000);
-            JOptionPane.showMessageDialog(null, "Enviado Usuarios com sucesso, Apertar OK para prosseguir!");
 
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -240,20 +237,20 @@ public class MenuPanel extends javax.swing.JPanel {
     private void BotaoImportarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoImportarDadosActionPerformed
         // TODO add your handling code here:
         UsuarioDao usuarioDao = new UsuarioDaoImpl();
-        
+
         try {
             Usuario user = ManterKahootNegocio.recebendoUsuarioViaSocket();
             JOptionPane.showMessageDialog(this, "Usuario recebido via rede!");
-          boolean inserido = usuarioDao.inserir(user);
-          if (inserido) {
-              JOptionPane.showMessageDialog(this, "Usuario Inserido no banco");
-          } else {
-              JOptionPane.showMessageDialog(this, "Deu Ruim , verifique!");
-          }
+            boolean inserido = usuarioDao.inserir(user);
+            if (inserido) {
+                JOptionPane.showMessageDialog(this, "Usuario Inserido no banco");
+            } else {
+                JOptionPane.showMessageDialog(this, "Deu Ruim , verifique!");
+            }
         } catch (Exception exception) {
             JOptionPane.showMessageDialog(this, "Algo de errado não está certo.");
         }
-        
+
     }//GEN-LAST:event_BotaoImportarDadosActionPerformed
 
 

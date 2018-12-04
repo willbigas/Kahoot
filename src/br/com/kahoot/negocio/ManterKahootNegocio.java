@@ -152,6 +152,14 @@ public class ManterKahootNegocio {
                 PrincipalServidor.CONFIGURACAO_GLOBAL.getPorta());
         return usuario;
     }
+    
+    public static String recebendoIpViaSocket() throws Exception {
+        String mensagem = (String) ManterSocketNegocio.recebendoDadosViaSocket(
+                PrincipalServidor.CONFIGURACAO_GLOBAL.getPorta());
+        return mensagem;
+    }
+    
+    
 
     public static List<Usuario> pesquisarUsuario(String termo) throws Exception {
         List<Usuario> retorno = new ArrayList<>();
