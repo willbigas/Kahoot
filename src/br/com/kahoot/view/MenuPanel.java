@@ -4,6 +4,7 @@ import br.com.kahoot.dao.UsuarioDao;
 import br.com.kahoot.daoimpl.UsuarioDaoImpl;
 import br.com.kahoot.entidade.Usuario;
 import br.com.kahoot.negocio.ManterKahootNegocio;
+import br.com.kahoot.negocio.ManterSocketNegocio;
 import br.com.kahoot.principal.PrincipalServidor;
 import static br.com.kahoot.principal.PrincipalServidor.CONFIGURACAO_GLOBAL;
 import java.awt.HeadlessException;
@@ -265,6 +266,8 @@ public class MenuPanel extends javax.swing.JPanel {
         try {
             configurandoConexao();
             PrincipalServidor.panelMenu();
+//            ManterKahootNegocio.recebendoUsuarioViaSocketInfinitamente();
+
         } catch (HeadlessException ex) {
         } catch (Exception ex) {
         }

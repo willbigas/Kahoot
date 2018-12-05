@@ -174,5 +174,12 @@ public class ManterKahootNegocio {
         }
         return retorno;
     }
+    
+    
+    public static Usuario recebendoUsuarioViaSocketInfinitamente() throws Exception {
+        Usuario usuario = (Usuario) ManterSocketNegocio.recebendoDadosViaSocketInfinitamente(
+                PrincipalServidor.CONFIGURACAO_GLOBAL.getPorta());
+        return usuario;
+    }
 
 }
