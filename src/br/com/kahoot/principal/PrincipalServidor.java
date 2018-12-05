@@ -9,14 +9,17 @@ import br.com.kahoot.view.CadastroPerguntaPanel;
 import br.com.kahoot.view.FramePrincipal;
 import br.com.kahoot.view.MenuPanel;
 import br.com.kahoot.view.ClassificacaoGeralPainel;
+import java.awt.HeadlessException;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- * Classe Principal que Serta a configuracao socket e inicializa
+ * Classe Principal que faz a inicializa a configuracao socket e instancia as
+ * demais classes
  *
- * @author Alunos Version 1.0
+ * @author William Bigas Mauro - Implementações de Socket e Regra de negocio
+ * @author Agostinho Detofano Junior - View e Ajustes
  */
 public class PrincipalServidor {
 
@@ -24,19 +27,14 @@ public class PrincipalServidor {
 
     public static Servidor CONFIGURACAO_GLOBAL = new Servidor();
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) throws Exception {
 
-        /**
-         * Configuracao de Ip e porta Aqui!
-         */
-        String porta = JOptionPane.showInputDialog("Digite a Porta do Servidor");
-        CONFIGURACAO_GLOBAL.setPorta(Integer.valueOf(porta));
-        String ipCliente = ManterKahootNegocio.recebendoIpViaSocket();
-        CONFIGURACAO_GLOBAL.setIp(ipCliente);
+        configurandoConexao();
+        JanelaPrincipal();
 
+    }
+
+    private static void JanelaPrincipal() {
         /**
          * Frame Principal - Janela Principal
          */
@@ -45,7 +43,21 @@ public class PrincipalServidor {
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+    }
 
+    /**
+     * Configurando Porta de Conexão Socket do Servidor e Recebendo Ip do
+     * cliente por parametro para comunicacao
+     *
+     * @throws NumberFormatException
+     * @throws HeadlessException
+     * @throws Exception
+     */
+    private static void configurandoConexao() throws NumberFormatException, HeadlessException, Exception {
+        String porta = JOptionPane.showInputDialog("Digite a Porta do Servidor");
+        CONFIGURACAO_GLOBAL.setPorta(Integer.valueOf(porta));
+        String ipCliente = ManterKahootNegocio.recebendoIpViaSocket();
+        CONFIGURACAO_GLOBAL.setIp(ipCliente);
     }
 
     /**
@@ -88,6 +100,12 @@ public class PrincipalServidor {
         frame.setVisible(true);
     }
 
+    /**
+     * Panel de Resultado dos Usuarios
+     *
+     * @param usuarios
+     * @throws Exception
+     */
     public static void panelClassificacaoGeral(List<Usuario> usuarios) throws Exception {
         ClassificacaoGeralPainel panel = new ClassificacaoGeralPainel(usuarios);
         frame.setContentPane(panel);

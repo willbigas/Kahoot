@@ -3,8 +3,11 @@ package br.com.kahoot.entidade;
 import java.io.Serializable;
 
 /**
+ * Classe de Entidade Assunto que implementa Serializable para comunicacao via
+ * Socket
  *
- * @author William
+ * @author William Bigas Mauro
+ * @since 25/11/2018
  */
 public class Assunto implements Serializable {
 

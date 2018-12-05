@@ -16,36 +16,16 @@ import javax.swing.JOptionPane;
  *
  * @author William Bigas Mauro - Documentação e Melhorias
  * @author Agostinho - Criacao de Interface
- * @since 29/11/2018
+ * @since 05/12/2018
  */
 public class CadastroAssuntoPanel extends javax.swing.JPanel {
 
+    public static AssuntoDao assuntoDao = new AssuntoDaoImpl();
+    public static DisciplinaDao disciplinaDao = new DisciplinaDaoImpl();
+
     public CadastroAssuntoPanel() throws Exception {
         initComponents();
-        ListarComboBox();
-    }
-
-    public void ListarComboBox() throws Exception {
-        mostrandoListaDeDiscipinas();
-    }
-
-    /**
-     * Mostrando Lista de Disciplinas na Combo Box
-     *
-     * @throws Exception
-     */
-    public void mostrandoListaDeDiscipinas() throws Exception {
-        DisciplinaDao disciplinaDao = new DisciplinaDaoImpl();
-        try {
-            List<?> disciplinas = disciplinaDao.pesquisarTodos();
-            List<Disciplina> disciplina = (List<Disciplina>) (Object) disciplinas;
-            for (Disciplina disc : disciplina) {
-                ComboDisciplina.addItem(disc.getNome());
-            }
-        } catch (SQLException ex) {
-            System.err.println("Erro ao pesquisar disciplina"
-                    + ex.getMessage());
-        }
+        mostrandoListaDeDisciplinas();
     }
 
     @SuppressWarnings("unchecked")
@@ -146,73 +126,98 @@ public class CadastroAssuntoPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
-        /**
-         * Aqui volta para o menu do projeto
-         */
         PrincipalServidor.panelMenu();
     }//GEN-LAST:event_BotaoVoltarActionPerformed
 
     private void BotaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSalvarActionPerformed
-        /**
-         * Recebendo da Inteface e salvando Assunto no Banco de dados.
-         */
         SalvandoAssunto();
     }//GEN-LAST:event_BotaoSalvarActionPerformed
 
     public void SalvandoAssunto() throws HeadlessException {
-        /**
-         * Verificando se os campos foram preenchidos corretamente
-         *
-         */
         if (CampoNome.getText().isEmpty()
                 || ComboDisciplina.getSelectedItem().equals(0)) {
             JOptionPane.showMessageDialog(null, "Por favor preencher todos os campos");
         } else {
-            /**
-             * Criando objeto Assunto
-             */
             CriandoAssunto();
         }
     }
 
+    /**
+     * Criando Objeto assunto e validando os dados.
+     */
     public void CriandoAssunto() {
-        AssuntoDao assuntoDao = new AssuntoDaoImpl();
-        try {
-            /**
-             * Atribuindo os atributos ah assunto
-             */
-            Assunto assunto = new Assunto();
-            assunto.setNome(CampoNome.getText());
-            int id = ComboDisciplina.getSelectedIndex();
-            Disciplina disciplina = new Disciplina();
-            disciplina.setId(id);
-            assunto.setDisciplina(disciplina);
-            /**
-             * Verificando se a combobox foi inserida
-             */
-            if (disciplina.getId().equals(0)) {
-                JOptionPane.showMessageDialog(null, "Por favor preencha a combobox!");
-                /**
-                 * Se foi todos os campos inseridos e gravado no bd
-                 */
-            } else {
-                boolean inserido = assuntoDao.inserir(assunto);
-                if (inserido) {
-                    JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
-                    CampoNome.setText(null);
-                    ComboDisciplina.setSelectedIndex(0);
-
-                }
-            }
-        } catch (Exception ex) {
-            System.out.println(ex.getStackTrace());
+        Assunto assunto = new Assunto();
+        assunto.setNome(CampoNome.getText());
+        Disciplina disciplina = criarDisciplina();
+        assunto.setDisciplina(disciplina);
+        if (disciplina.getId().equals(0)) {
+            JOptionPane.showMessageDialog(null, "Por favor preencha a combobox!");
+        } else {
+            boolean inserido = false;
             try {
-                PrincipalServidor.panelCadastroAssunto();
-            } catch (Exception exl) {
-                System.out.println(exl.getStackTrace());
+                inserido = inserindoAssuntoNoBanco(assunto);
+            } catch (Exception exception) {
+            }
+            if (inserido) {
+                JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+                limpandoCampos();
+
             }
         }
+
     }
+
+    /**
+     * Inserindo Assunto no banco via BaseDAO - AssuntoDAO
+     *
+     * @param assunto
+     * @return
+     * @throws Exception
+     */
+    private boolean inserindoAssuntoNoBanco(Assunto assunto) throws Exception {
+        boolean inserido = assuntoDao.inserir(assunto);
+        return inserido;
+    }
+
+    /**
+     * Limpando Campos do panel apos a gravacao dos dados
+     */
+    private void limpandoCampos() {
+        CampoNome.setText(null);
+        ComboDisciplina.setSelectedIndex(0);
+    }
+
+    /**
+     * Criando Objeto Disciplina
+     *
+     * @return
+     */
+    private Disciplina criarDisciplina() {
+        int id = ComboDisciplina.getSelectedIndex();
+        Disciplina disciplina = new Disciplina();
+        disciplina.setId(id);
+        return disciplina;
+    }
+
+    /**
+     * Mostrando Lista de Disciplinas na Combo Box
+     *
+     * @throws Exception
+     */
+    public void mostrandoListaDeDisciplinas() throws Exception {
+
+        try {
+            List<?> disciplinas = disciplinaDao.pesquisarTodos();
+            List<Disciplina> disciplina = (List<Disciplina>) (Object) disciplinas;
+            for (Disciplina disc : disciplina) {
+                ComboDisciplina.addItem(disc.getNome());
+            }
+        } catch (SQLException ex) {
+            System.err.println("Erro ao pesquisar disciplina"
+                    + ex.getMessage());
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoSalvar;
     private javax.swing.JButton BotaoVoltar;

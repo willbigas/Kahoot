@@ -12,7 +12,9 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author William
+ * @author Agostinho Detofano Junior - View e Model
+ * @author William Bigas Mauro - Ajustes e Documentacoes
+ * @since 05/12/2018
  */
 public class MenuPanel extends javax.swing.JPanel {
 
@@ -224,8 +226,6 @@ public class MenuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_BotaoExportarDadosActionPerformed
 
     private void BotaoPlacarGeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoPlacarGeralActionPerformed
-        // TODO add your handling code here:
-
         try {
             List<Usuario> usuarios = (List<Usuario>) (Object) usuarioDao.pesquisarTodosOrdenadoPorNome();
             PrincipalServidor.panelClassificacaoGeral(usuarios);
@@ -235,8 +235,6 @@ public class MenuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_BotaoPlacarGeralActionPerformed
 
     private void BotaoImportarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoImportarDadosActionPerformed
-        // TODO add your handling code here:
-        UsuarioDao usuarioDao = new UsuarioDaoImpl();
 
         try {
             Usuario user = ManterKahootNegocio.recebendoUsuarioViaSocket();

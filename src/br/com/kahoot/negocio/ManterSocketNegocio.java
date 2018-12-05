@@ -18,7 +18,7 @@ public class ManterSocketNegocio {
     /**
      * Funcao que Cria um Server Socket e fica Escutando uma determinada porta.
      *
-     * @param porta
+     * @param porta - Recebe uma determinada porta por parametro
      * @return
      * @throws IOException
      * @throws ClassNotFoundException
@@ -37,9 +37,9 @@ public class ManterSocketNegocio {
     /**
      * Funcao que envia arquivos para um IP/Porta via ServerSocket.
      *
-     * @param enderecoIp
-     * @param porta
-     * @param objParaEnviar
+     * @param enderecoIp - Recebe um Endereco ip por Parametro
+     * @param porta - Recebe uma Porta por Parametro
+     * @param objParaEnviar - Recebe um Determinado objeto por parametro
      * @throws Exception
      */
     public static void enviandoDadosViaSocket(String enderecoIp, Integer porta, Object objParaEnviar) throws Exception {

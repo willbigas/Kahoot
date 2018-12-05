@@ -261,9 +261,6 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVoltarActionPerformed
-        /**
-         * Volta para o menu do projeto
-         */
         PrincipalServidor.panelMenu();
     }//GEN-LAST:event_BotaoVoltarActionPerformed
 
@@ -274,9 +271,6 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_BotaoGravarActionPerformed
 
     private void gravandoPergunta() throws HeadlessException {
-        /**
-         * Verificando se os campos foram preenchidos corretamente
-         */
         if (CampoPergunta.getText().isEmpty()
                 || CampoResposta1.getText().isEmpty()
                 || CampoResposta2.getText().isEmpty()
@@ -286,9 +280,6 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Por favor preencha todos os campos para prosseguir!");
 
         } else {
-            /**
-             * Realiza todo o processo de Cadastro de Pergunta
-             */
             jogandoInformacaoNaComboBox();
             Pergunta pergunta = new Pergunta();
             pergunta.setAssunto(ASSUNTO_SELECIONADO);
@@ -297,7 +288,6 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
             pergunta.setRespostas(respostasDoUsuario);
             pergunta.setTempo(1); // falta implementar!
             validandoInsertNoBanco(pergunta);
-
             LimpandoCampos();
         }
     }

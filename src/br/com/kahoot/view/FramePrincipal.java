@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
  *
  * @author William Bigas Mauro - Documentação e Melhorias
  * @author Agostinho Detófano Junior - Criação da Interface
- * @since 29/11/2018
+ * @since 05/12/2018
  */
 public class FramePrincipal extends javax.swing.JFrame {
 
