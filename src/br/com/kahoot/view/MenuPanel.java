@@ -5,6 +5,8 @@ import br.com.kahoot.daoimpl.UsuarioDaoImpl;
 import br.com.kahoot.entidade.Usuario;
 import br.com.kahoot.negocio.ManterKahootNegocio;
 import br.com.kahoot.principal.PrincipalServidor;
+import static br.com.kahoot.principal.PrincipalServidor.CONFIGURACAO_GLOBAL;
+import java.awt.HeadlessException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,7 +32,6 @@ public class MenuPanel extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         BotaoAdicionarPergunta = new javax.swing.JButton();
-        BotaoJogar = new javax.swing.JButton();
         textoEscolherOpcao = new javax.swing.JLabel();
         BotaoSair = new javax.swing.JButton();
         BotaoAssunto = new javax.swing.JButton();
@@ -38,6 +39,7 @@ public class MenuPanel extends javax.swing.JPanel {
         BotaoExportarDados = new javax.swing.JButton();
         BotaoPlacarGeral = new javax.swing.JButton();
         BotaoImportarDados = new javax.swing.JButton();
+        bottonConfigConexao = new javax.swing.JButton();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -45,7 +47,7 @@ public class MenuPanel extends javax.swing.JPanel {
         BotaoAdicionarPergunta.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         BotaoAdicionarPergunta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
         BotaoAdicionarPergunta.setText("Pergunta");
-        BotaoAdicionarPergunta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotaoAdicionarPergunta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BotaoAdicionarPergunta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoAdicionarPerguntaActionPerformed(evt);
@@ -55,20 +57,8 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(BotaoAdicionarPergunta, gridBagConstraints);
-
-        BotaoJogar.setBackground(new java.awt.Color(255, 255, 255));
-        BotaoJogar.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        BotaoJogar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_jogar_128x128.png"))); // NOI18N
-        BotaoJogar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        BotaoJogar.setPreferredSize(new java.awt.Dimension(130, 130));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
-        add(BotaoJogar, gridBagConstraints);
 
         textoEscolherOpcao.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
         textoEscolherOpcao.setText("Escolha uma opção!");
@@ -81,7 +71,7 @@ public class MenuPanel extends javax.swing.JPanel {
         BotaoSair.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         BotaoSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_sair_32x32.png"))); // NOI18N
         BotaoSair.setText("SAIR");
-        BotaoSair.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotaoSair.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BotaoSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoSairActionPerformed(evt);
@@ -91,14 +81,14 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(BotaoSair, gridBagConstraints);
 
         BotaoAssunto.setBackground(new java.awt.Color(255, 255, 255));
         BotaoAssunto.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         BotaoAssunto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
         BotaoAssunto.setText("Assunto");
-        BotaoAssunto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotaoAssunto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BotaoAssunto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoAssuntoActionPerformed(evt);
@@ -108,14 +98,14 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(BotaoAssunto, gridBagConstraints);
 
         BotaoDisciplina.setBackground(new java.awt.Color(255, 255, 255));
         BotaoDisciplina.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         BotaoDisciplina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
         BotaoDisciplina.setText("Disciplina");
-        BotaoDisciplina.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotaoDisciplina.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BotaoDisciplina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoDisciplinaActionPerformed(evt);
@@ -125,14 +115,14 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(BotaoDisciplina, gridBagConstraints);
 
         BotaoExportarDados.setBackground(new java.awt.Color(255, 255, 255));
         BotaoExportarDados.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         BotaoExportarDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
         BotaoExportarDados.setText("Exportar");
-        BotaoExportarDados.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotaoExportarDados.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BotaoExportarDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoExportarDadosActionPerformed(evt);
@@ -142,14 +132,14 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(BotaoExportarDados, gridBagConstraints);
 
         BotaoPlacarGeral.setBackground(new java.awt.Color(255, 255, 255));
         BotaoPlacarGeral.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         BotaoPlacarGeral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
         BotaoPlacarGeral.setText("Placar Geral");
-        BotaoPlacarGeral.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotaoPlacarGeral.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BotaoPlacarGeral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoPlacarGeralActionPerformed(evt);
@@ -159,14 +149,14 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(BotaoPlacarGeral, gridBagConstraints);
 
         BotaoImportarDados.setBackground(new java.awt.Color(255, 255, 255));
         BotaoImportarDados.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         BotaoImportarDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
         BotaoImportarDados.setText("Importar");
-        BotaoImportarDados.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BotaoImportarDados.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BotaoImportarDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoImportarDadosActionPerformed(evt);
@@ -176,8 +166,25 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(BotaoImportarDados, gridBagConstraints);
+
+        bottonConfigConexao.setBackground(new java.awt.Color(255, 255, 255));
+        bottonConfigConexao.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        bottonConfigConexao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
+        bottonConfigConexao.setText("Configurar conexao");
+        bottonConfigConexao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        bottonConfigConexao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottonConfigConexaoActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(bottonConfigConexao, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoAdicionarPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAdicionarPerguntaActionPerformed
@@ -249,7 +256,18 @@ public class MenuPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Algo de errado não está certo.");
         }
 
+
     }//GEN-LAST:event_BotaoImportarDadosActionPerformed
+
+    private void bottonConfigConexaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottonConfigConexaoActionPerformed
+        try {
+            configurandoConexao();
+            PrincipalServidor.panelMenu();
+        } catch (HeadlessException ex) {
+        } catch (Exception ex) {
+        }
+
+    }//GEN-LAST:event_bottonConfigConexaoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -258,9 +276,16 @@ public class MenuPanel extends javax.swing.JPanel {
     private javax.swing.JButton BotaoDisciplina;
     private javax.swing.JButton BotaoExportarDados;
     private javax.swing.JButton BotaoImportarDados;
-    private javax.swing.JButton BotaoJogar;
     private javax.swing.JButton BotaoPlacarGeral;
     private javax.swing.JButton BotaoSair;
+    private javax.swing.JButton bottonConfigConexao;
     private javax.swing.JLabel textoEscolherOpcao;
     // End of variables declaration//GEN-END:variables
+
+    private static void configurandoConexao() throws NumberFormatException, HeadlessException, Exception {
+        String porta = JOptionPane.showInputDialog("Digite a Porta do Servidor");
+        CONFIGURACAO_GLOBAL.setPorta(Integer.valueOf(porta));
+        String ipCliente = ManterKahootNegocio.recebendoIpViaSocket();
+        CONFIGURACAO_GLOBAL.setIp(ipCliente);
+    }
 }

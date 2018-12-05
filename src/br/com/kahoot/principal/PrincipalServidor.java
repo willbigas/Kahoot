@@ -29,7 +29,6 @@ public class PrincipalServidor {
 
     public static void main(String[] args) throws Exception {
 
-        configurandoConexao();
         JanelaPrincipal();
 
     }

@@ -1,7 +1,6 @@
 package br.com.kahoot.view;
 
 import br.com.kahoot.principal.PrincipalServidor;
-import javax.swing.JOptionPane;
 
 /**
  * Classe de Login com Interface Swing
@@ -24,8 +23,6 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        textoNome = new javax.swing.JLabel();
-        CampoNome = new javax.swing.JTextField();
         PainelBotoesInferior = new javax.swing.JPanel();
         BotaoSair = new javax.swing.JButton();
         BotaoEntrar = new javax.swing.JButton();
@@ -39,24 +36,9 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 0, 0));
+        setForeground(new java.awt.Color(0, 0, 0));
         getContentPane().setLayout(new java.awt.GridBagLayout());
-
-        textoNome.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        textoNome.setText("Nome:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(textoNome, gridBagConstraints);
-
-        CampoNome.setColumns(10);
-        CampoNome.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        getContentPane().add(CampoNome, gridBagConstraints);
 
         PainelBotoesInferior.setLayout(new java.awt.GridBagLayout());
 
@@ -119,11 +101,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEntrarActionPerformed
-        if (CampoNome.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor digite um nome para prosseguir!");
-        } else {
-            PrincipalServidor.panelMenu();
-        }
+        PrincipalServidor.panelMenu();
     }//GEN-LAST:event_BotaoEntrarActionPerformed
 
     private void BotaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairActionPerformed
@@ -164,13 +142,11 @@ public class FramePrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoEntrar;
     private javax.swing.JButton BotaoSair;
-    private javax.swing.JTextField CampoNome;
     private javax.swing.JPanel PainelBotoesInferior;
     private javax.swing.JPanel PainelImagem;
     private javax.swing.JLabel img_Quiz;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JLabel textoNome;
     // End of variables declaration//GEN-END:variables
 }
