@@ -41,6 +41,7 @@ public class MenuPanel extends javax.swing.JPanel {
         BotaoImportarDados = new javax.swing.JButton();
         bottonConfigConexao = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(144, 48, 0));
         setLayout(new java.awt.GridBagLayout());
 
         BotaoAdicionarPergunta.setBackground(new java.awt.Color(255, 255, 255));
@@ -61,6 +62,7 @@ public class MenuPanel extends javax.swing.JPanel {
         add(BotaoAdicionarPergunta, gridBagConstraints);
 
         textoEscolherOpcao.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
+        textoEscolherOpcao.setForeground(new java.awt.Color(255, 255, 255));
         textoEscolherOpcao.setText("Escolha uma opção!");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
