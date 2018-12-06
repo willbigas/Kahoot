@@ -10,7 +10,9 @@ import static br.com.kahoot.principal.PrincipalServidor.CONFIGURACAO_GLOBAL;
 import java.awt.HeadlessException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.net.InetAddress;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,6 +30,13 @@ public class MenuPanel extends javax.swing.JPanel {
     
     public MenuPanel() {
         initComponents();
+        InetAddress ipAtual;
+        try {
+            ipAtual = InetAddress.getLocalHost();
+            textoIpServidor.setText(ipAtual.getHostAddress());
+        } catch (UnknownHostException unknownHostException) {
+        }
+        
     }
     
     @SuppressWarnings("unchecked")
@@ -42,6 +51,7 @@ public class MenuPanel extends javax.swing.JPanel {
         BotaoDisciplina = new javax.swing.JButton();
         BotaoPlacarGeral = new javax.swing.JButton();
         bottonConfigConexao = new javax.swing.JButton();
+        textoIpServidor = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 153, 153));
         setLayout(new java.awt.GridBagLayout());
@@ -161,6 +171,12 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(bottonConfigConexao, gridBagConstraints);
+
+        textoIpServidor.setForeground(new java.awt.Color(0, 0, 0));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        add(textoIpServidor, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoAdicionarPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAdicionarPerguntaActionPerformed
@@ -251,6 +267,7 @@ public class MenuPanel extends javax.swing.JPanel {
     private javax.swing.JButton BotaoSair;
     private javax.swing.JButton bottonConfigConexao;
     private javax.swing.JLabel textoEscolherOpcao;
+    private javax.swing.JLabel textoIpServidor;
     // End of variables declaration//GEN-END:variables
 
     private static void configurandoConexao() throws NumberFormatException, HeadlessException, Exception {
