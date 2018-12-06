@@ -52,6 +52,7 @@ public class MenuPanel extends javax.swing.JPanel {
         BotaoPlacarGeral = new javax.swing.JButton();
         bottonConfigConexao = new javax.swing.JButton();
         textoIpServidor = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 153, 153));
         setLayout(new java.awt.GridBagLayout());
@@ -69,7 +70,7 @@ public class MenuPanel extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(BotaoAdicionarPergunta, gridBagConstraints);
@@ -78,6 +79,8 @@ public class MenuPanel extends javax.swing.JPanel {
         textoEscolherOpcao.setForeground(new java.awt.Color(0, 0, 0));
         textoEscolherOpcao.setText("Escolha uma opção!");
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         add(textoEscolherOpcao, gridBagConstraints);
@@ -113,7 +116,7 @@ public class MenuPanel extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(BotaoAssunto, gridBagConstraints);
@@ -131,7 +134,7 @@ public class MenuPanel extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(BotaoDisciplina, gridBagConstraints);
@@ -167,16 +170,26 @@ public class MenuPanel extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(bottonConfigConexao, gridBagConstraints);
 
+        textoIpServidor.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         textoIpServidor.setForeground(new java.awt.Color(0, 0, 0));
+        textoIpServidor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(textoIpServidor, gridBagConstraints);
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Meu IP");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        add(jLabel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoAdicionarPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAdicionarPerguntaActionPerformed
@@ -266,6 +279,7 @@ public class MenuPanel extends javax.swing.JPanel {
     private javax.swing.JButton BotaoPlacarGeral;
     private javax.swing.JButton BotaoSair;
     private javax.swing.JButton bottonConfigConexao;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel textoEscolherOpcao;
     private javax.swing.JLabel textoIpServidor;
     // End of variables declaration//GEN-END:variables
