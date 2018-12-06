@@ -8,6 +8,9 @@ import br.com.kahoot.negocio.ManterSocketNegocio;
 import br.com.kahoot.principal.PrincipalServidor;
 import static br.com.kahoot.principal.PrincipalServidor.CONFIGURACAO_GLOBAL;
 import java.awt.HeadlessException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.net.Socket;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,13 +23,13 @@ import javax.swing.JOptionPane;
  * @since 05/12/2018
  */
 public class MenuPanel extends javax.swing.JPanel {
-
+    
     public static UsuarioDao usuarioDao = new UsuarioDaoImpl();
-
+    
     public MenuPanel() {
         initComponents();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -37,16 +40,15 @@ public class MenuPanel extends javax.swing.JPanel {
         BotaoSair = new javax.swing.JButton();
         BotaoAssunto = new javax.swing.JButton();
         BotaoDisciplina = new javax.swing.JButton();
-        BotaoExportarDados = new javax.swing.JButton();
         BotaoPlacarGeral = new javax.swing.JButton();
-        BotaoImportarDados = new javax.swing.JButton();
         bottonConfigConexao = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(144, 48, 0));
+        setBackground(new java.awt.Color(153, 153, 153));
         setLayout(new java.awt.GridBagLayout());
 
         BotaoAdicionarPergunta.setBackground(new java.awt.Color(255, 255, 255));
         BotaoAdicionarPergunta.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        BotaoAdicionarPergunta.setForeground(new java.awt.Color(0, 0, 0));
         BotaoAdicionarPergunta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
         BotaoAdicionarPergunta.setText("Pergunta");
         BotaoAdicionarPergunta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -63,7 +65,7 @@ public class MenuPanel extends javax.swing.JPanel {
         add(BotaoAdicionarPergunta, gridBagConstraints);
 
         textoEscolherOpcao.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
-        textoEscolherOpcao.setForeground(new java.awt.Color(255, 255, 255));
+        textoEscolherOpcao.setForeground(new java.awt.Color(0, 0, 0));
         textoEscolherOpcao.setText("Escolha uma opção!");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
@@ -72,6 +74,7 @@ public class MenuPanel extends javax.swing.JPanel {
 
         BotaoSair.setBackground(new java.awt.Color(255, 255, 255));
         BotaoSair.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        BotaoSair.setForeground(new java.awt.Color(0, 0, 0));
         BotaoSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_sair_32x32.png"))); // NOI18N
         BotaoSair.setText("SAIR");
         BotaoSair.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -89,6 +92,7 @@ public class MenuPanel extends javax.swing.JPanel {
 
         BotaoAssunto.setBackground(new java.awt.Color(255, 255, 255));
         BotaoAssunto.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        BotaoAssunto.setForeground(new java.awt.Color(0, 0, 0));
         BotaoAssunto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
         BotaoAssunto.setText("Assunto");
         BotaoAssunto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -106,6 +110,7 @@ public class MenuPanel extends javax.swing.JPanel {
 
         BotaoDisciplina.setBackground(new java.awt.Color(255, 255, 255));
         BotaoDisciplina.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        BotaoDisciplina.setForeground(new java.awt.Color(0, 0, 0));
         BotaoDisciplina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
         BotaoDisciplina.setText("Disciplina");
         BotaoDisciplina.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -121,25 +126,9 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(BotaoDisciplina, gridBagConstraints);
 
-        BotaoExportarDados.setBackground(new java.awt.Color(255, 255, 255));
-        BotaoExportarDados.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        BotaoExportarDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
-        BotaoExportarDados.setText("Exportar");
-        BotaoExportarDados.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        BotaoExportarDados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoExportarDadosActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(BotaoExportarDados, gridBagConstraints);
-
         BotaoPlacarGeral.setBackground(new java.awt.Color(255, 255, 255));
         BotaoPlacarGeral.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        BotaoPlacarGeral.setForeground(new java.awt.Color(0, 0, 0));
         BotaoPlacarGeral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
         BotaoPlacarGeral.setText("Placar Geral");
         BotaoPlacarGeral.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -155,27 +144,11 @@ public class MenuPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(BotaoPlacarGeral, gridBagConstraints);
 
-        BotaoImportarDados.setBackground(new java.awt.Color(255, 255, 255));
-        BotaoImportarDados.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        BotaoImportarDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
-        BotaoImportarDados.setText("Importar");
-        BotaoImportarDados.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        BotaoImportarDados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoImportarDadosActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(BotaoImportarDados, gridBagConstraints);
-
         bottonConfigConexao.setBackground(new java.awt.Color(255, 255, 255));
         bottonConfigConexao.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        bottonConfigConexao.setForeground(new java.awt.Color(0, 0, 0));
         bottonConfigConexao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_adicionar_32x32.png"))); // NOI18N
-        bottonConfigConexao.setText("Configurar conexao");
+        bottonConfigConexao.setText("Iniciar Conexão");
         bottonConfigConexao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         bottonConfigConexao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,28 +185,28 @@ public class MenuPanel extends javax.swing.JPanel {
             Logger.getLogger(MenuPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_BotaoAssuntoActionPerformed
-
-    private void BotaoExportarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoExportarDadosActionPerformed
+    
+    private static void enviandoTudo(String mensagem) {
         /**
          * Teste de Socket - Envio de Pergunta Via Porta determinada na Classe
          * Main
          */
         try {
-            JOptionPane.showMessageDialog(null, "Enviando arquivos!, Apertar OK para prosseguir!");
-            ManterKahootNegocio.enviandoDisciplinasViaSocket();
-            Thread.sleep(5000);
-            JOptionPane.showMessageDialog(null, "Enviado Disciplinas com sucesso, Apertar OK para prosseguir!");
-            ManterKahootNegocio.enviandoRespostasViaSocket();
-            Thread.sleep(5000);
-            JOptionPane.showMessageDialog(null, "Enviado Respostas com sucesso, Apertar OK para prosseguir!");
-            ManterKahootNegocio.enviandoPerguntasViaSocket();
-            Thread.sleep(5000);
-            JOptionPane.showMessageDialog(null, "Enviado Perguntas com sucesso, Apertar OK para prosseguir!");
+//            JOptionPane.showMessageDialog(null, "Enviando arquivos!, Apertar OK para prosseguir!");
+            ManterKahootNegocio.enviandoDisciplinasViaSocket(CONFIGURACAO_GLOBAL.getPorta(), mensagem);
+//            Thread.sleep(5000);
+//            JOptionPane.showMessageDialog(null, "Enviado Disciplinas com sucesso, Apertar OK para prosseguir!");
+            ManterKahootNegocio.enviandoRespostasViaSocket(CONFIGURACAO_GLOBAL.getPorta(), mensagem);
+//            Thread.sleep(5000);
+//            JOptionPane.showMessageDialog(null, "Enviado Respostas com sucesso, Apertar OK para prosseguir!");
+            ManterKahootNegocio.enviandoPerguntasViaSocket(CONFIGURACAO_GLOBAL.getPorta(), mensagem);
+//            Thread.sleep(5000);
+//            JOptionPane.showMessageDialog(null, "Enviado Perguntas com sucesso, Apertar OK para prosseguir!");
 
         } catch (Exception exception) {
             exception.printStackTrace();
         }
-    }//GEN-LAST:event_BotaoExportarDadosActionPerformed
+    }
 
     private void BotaoPlacarGeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoPlacarGeralActionPerformed
         try {
@@ -243,24 +216,19 @@ public class MenuPanel extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_BotaoPlacarGeralActionPerformed
-
-    private void BotaoImportarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoImportarDadosActionPerformed
-
+    
+    private static void mandandoUsuarioProBanco(Usuario user) throws HeadlessException {
         try {
-            Usuario user = ManterKahootNegocio.recebendoUsuarioViaSocket();
-            JOptionPane.showMessageDialog(this, "Usuario recebido via rede!");
             boolean inserido = usuarioDao.inserir(user);
             if (inserido) {
-                JOptionPane.showMessageDialog(this, "Usuario Inserido no banco");
+                JOptionPane.showMessageDialog(null, "Usuario Inserido no banco");
             } else {
-                JOptionPane.showMessageDialog(this, "Deu Ruim , verifique!");
+                JOptionPane.showMessageDialog(null, "Deu Ruim , verifique!");
             }
         } catch (Exception exception) {
-            JOptionPane.showMessageDialog(this, "Algo de errado não está certo.");
+            JOptionPane.showMessageDialog(null, "Algo de errado não está certo.");
         }
-
-
-    }//GEN-LAST:event_BotaoImportarDadosActionPerformed
+    }
 
     private void bottonConfigConexaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottonConfigConexaoActionPerformed
         try {
@@ -279,8 +247,6 @@ public class MenuPanel extends javax.swing.JPanel {
     private javax.swing.JButton BotaoAdicionarPergunta;
     private javax.swing.JButton BotaoAssunto;
     private javax.swing.JButton BotaoDisciplina;
-    private javax.swing.JButton BotaoExportarDados;
-    private javax.swing.JButton BotaoImportarDados;
     private javax.swing.JButton BotaoPlacarGeral;
     private javax.swing.JButton BotaoSair;
     private javax.swing.JButton bottonConfigConexao;
@@ -290,7 +256,31 @@ public class MenuPanel extends javax.swing.JPanel {
     private static void configurandoConexao() throws NumberFormatException, HeadlessException, Exception {
         String porta = JOptionPane.showInputDialog("Digite a Porta do Servidor");
         CONFIGURACAO_GLOBAL.setPorta(Integer.valueOf(porta));
-        String ipCliente = ManterKahootNegocio.recebendoIpViaSocket();
-        CONFIGURACAO_GLOBAL.setIp(ipCliente);
+        ManterSocketNegocio.iniciarSocket(CONFIGURACAO_GLOBAL.getPorta());
+        Thread t = new Thread() {
+            public void run() {
+                try {
+                    while (true) {
+                        Socket entradaDados = ManterSocketNegocio.getServidor().accept();
+                        ObjectInputStream input = new ObjectInputStream(entradaDados.getInputStream());
+                        Object objRecebido = input.readObject();
+                        if (objRecebido instanceof Usuario) {
+                            mandandoUsuarioProBanco((Usuario) objRecebido);
+                            
+                        } else if (objRecebido instanceof String) {
+                            String mensagem = (String) objRecebido;
+                            enviandoTudo(mensagem);
+                        }
+                        
+                        entradaDados.close();
+                    }
+                } catch (IOException iOException) {
+                } catch (ClassNotFoundException classNotFoundException) {
+                }
+            }
+        };
+        t.start();
+
+//        String ipCliente = ManterKahootNegocio.recebendoIpViaSocket();
     }
 }

@@ -72,14 +72,14 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         BotaoResposta3 = new javax.swing.JRadioButton();
         BotaoResposta4 = new javax.swing.JRadioButton();
 
-        setBackground(new java.awt.Color(144, 48, 0));
+        setBackground(new java.awt.Color(153, 153, 153));
         setLayout(new java.awt.GridBagLayout());
 
-        PanelSuperior.setBackground(new java.awt.Color(144, 48, 0));
+        PanelSuperior.setBackground(new java.awt.Color(153, 153, 153));
         PanelSuperior.setLayout(new java.awt.GridBagLayout());
 
         textoCadastroPergunta.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
-        textoCadastroPergunta.setForeground(new java.awt.Color(255, 255, 255));
+        textoCadastroPergunta.setForeground(new java.awt.Color(0, 0, 0));
         textoCadastroPergunta.setText("CADASTRO PERGUNTA");
         PanelSuperior.add(textoCadastroPergunta, new java.awt.GridBagConstraints());
 
@@ -87,7 +87,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(PanelSuperior, gridBagConstraints);
 
-        PanelPergunta.setBackground(new java.awt.Color(144, 48, 0));
+        PanelPergunta.setBackground(new java.awt.Color(153, 153, 153));
         PanelPergunta.setForeground(new java.awt.Color(255, 255, 255));
         PanelPergunta.setLayout(new java.awt.GridBagLayout());
 
@@ -101,7 +101,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         PanelPergunta.add(CampoPergunta, gridBagConstraints);
 
         textoPergunta.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        textoPergunta.setForeground(new java.awt.Color(255, 255, 255));
+        textoPergunta.setForeground(new java.awt.Color(0, 0, 0));
         textoPergunta.setText("PERGUNTA:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -116,11 +116,11 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(PanelPergunta, gridBagConstraints);
 
-        PanelBotaoInferior.setBackground(new java.awt.Color(144, 48, 0));
+        PanelBotaoInferior.setBackground(new java.awt.Color(153, 153, 153));
         PanelBotaoInferior.setLayout(new java.awt.GridBagLayout());
 
         BotaoVoltar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        BotaoVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoVoltar.setForeground(new java.awt.Color(0, 0, 0));
         BotaoVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_voltar_32x32.png"))); // NOI18N
         BotaoVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,7 +132,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         PanelBotaoInferior.add(BotaoVoltar, gridBagConstraints);
 
         BotaoGravar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        BotaoGravar.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoGravar.setForeground(new java.awt.Color(0, 0, 0));
         BotaoGravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_salvar_32x32.png"))); // NOI18N
         BotaoGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,13 +157,13 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(ComboAssunto, gridBagConstraints);
 
-        PanelCorpo.setBackground(new java.awt.Color(144, 48, 0));
+        PanelCorpo.setBackground(new java.awt.Color(153, 153, 153));
         PanelCorpo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "RESPOSTAS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         PanelCorpo.setForeground(new java.awt.Color(255, 255, 255));
         PanelCorpo.setLayout(new java.awt.GridBagLayout());
 
         textoResposta1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        textoResposta1.setForeground(new java.awt.Color(255, 255, 255));
+        textoResposta1.setForeground(new java.awt.Color(0, 0, 0));
         textoResposta1.setText("Resposta 1:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -172,7 +172,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         PanelCorpo.add(textoResposta1, gridBagConstraints);
 
         textoResposta2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        textoResposta2.setForeground(new java.awt.Color(255, 255, 255));
+        textoResposta2.setForeground(new java.awt.Color(0, 0, 0));
         textoResposta2.setText("Resposta 2:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -181,7 +181,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         PanelCorpo.add(textoResposta2, gridBagConstraints);
 
         textoResposta3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        textoResposta3.setForeground(new java.awt.Color(255, 255, 255));
+        textoResposta3.setForeground(new java.awt.Color(0, 0, 0));
         textoResposta3.setText("Resposta 3:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -190,7 +190,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         PanelCorpo.add(textoResposta3, gridBagConstraints);
 
         textoResposta4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        textoResposta4.setForeground(new java.awt.Color(255, 255, 255));
+        textoResposta4.setForeground(new java.awt.Color(0, 0, 0));
         textoResposta4.setText("Resposta 4;");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -230,7 +230,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         PanelCorpo.add(CampoResposta4, gridBagConstraints);
 
-        BotaoResposta1.setBackground(new java.awt.Color(144, 48, 0));
+        BotaoResposta1.setBackground(new java.awt.Color(153, 153, 153));
         BotaoResposta1.setForeground(new java.awt.Color(0, 0, 0));
         BotaoResposta1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -242,7 +242,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 3;
         PanelCorpo.add(BotaoResposta1, gridBagConstraints);
 
-        BotaoResposta2.setBackground(new java.awt.Color(144, 48, 0));
+        BotaoResposta2.setBackground(new java.awt.Color(153, 153, 153));
         BotaoResposta2.setForeground(new java.awt.Color(0, 0, 0));
         BotaoResposta2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -254,7 +254,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 4;
         PanelCorpo.add(BotaoResposta2, gridBagConstraints);
 
-        BotaoResposta3.setBackground(new java.awt.Color(144, 48, 0));
+        BotaoResposta3.setBackground(new java.awt.Color(153, 153, 153));
         BotaoResposta3.setForeground(new java.awt.Color(0, 0, 0));
         BotaoResposta3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,7 +266,7 @@ public class CadastroPerguntaPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 5;
         PanelCorpo.add(BotaoResposta3, gridBagConstraints);
 
-        BotaoResposta4.setBackground(new java.awt.Color(144, 48, 0));
+        BotaoResposta4.setBackground(new java.awt.Color(153, 153, 153));
         BotaoResposta4.setForeground(new java.awt.Color(0, 0, 0));
         BotaoResposta4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

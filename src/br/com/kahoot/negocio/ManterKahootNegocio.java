@@ -39,11 +39,11 @@ public class ManterKahootNegocio {
      * @return
      * @throws Exception
      */
-    public static boolean enviandoDisciplinasViaSocket() throws Exception {
+    public static boolean enviandoDisciplinasViaSocket(Integer porta, String ip) throws Exception {
         List<Disciplina> disciplinas = (List<Disciplina>) (Object) DISCIPLINA_DAO.pesquisarTodos();
         try {
-            ManterSocketNegocio.enviandoDadosViaSocket(PrincipalServidor.CONFIGURACAO_GLOBAL.getIp(),
-                    PrincipalServidor.CONFIGURACAO_GLOBAL.getPorta(), disciplinas);
+            ManterSocketNegocio.enviandoDadosViaSocket(ip,
+                    porta, disciplinas);
             return true;
         } catch (Exception exception) {
             return false;
@@ -69,11 +69,11 @@ public class ManterKahootNegocio {
      * @return
      * @throws Exception
      */
-    public static boolean enviandoPerguntasViaSocket() throws Exception {
+    public static boolean enviandoPerguntasViaSocket(Integer porta, String ip) throws Exception {
         List<Pergunta> perguntas = (List<Pergunta>) (Object) PERGUNTA_DAO.pesquisarTodos();
         try {
-            ManterSocketNegocio.enviandoDadosViaSocket(PrincipalServidor.CONFIGURACAO_GLOBAL.getIp(),
-                    PrincipalServidor.CONFIGURACAO_GLOBAL.getPorta(), perguntas);
+            ManterSocketNegocio.enviandoDadosViaSocket(ip,
+                    porta, perguntas);
             return true;
         } catch (Exception exception) {
             return false;
@@ -99,11 +99,11 @@ public class ManterKahootNegocio {
      * @return
      * @throws Exception
      */
-    public static boolean enviandoRespostasViaSocket() throws Exception {
+    public static boolean enviandoRespostasViaSocket(Integer porta, String ip) throws Exception {
         List<Resposta> respostas = (List<Resposta>) (Object) RESPOSTA_DAO.pesquisarTodos();
         try {
-            ManterSocketNegocio.enviandoDadosViaSocket(PrincipalServidor.CONFIGURACAO_GLOBAL.getIp(),
-                    PrincipalServidor.CONFIGURACAO_GLOBAL.getPorta(), respostas);
+            ManterSocketNegocio.enviandoDadosViaSocket(ip,
+                    porta, respostas);
             return true;
         } catch (Exception exception) {
             return false;
@@ -152,14 +152,12 @@ public class ManterKahootNegocio {
                 PrincipalServidor.CONFIGURACAO_GLOBAL.getPorta());
         return usuario;
     }
-    
+
     public static String recebendoIpViaSocket() throws Exception {
         String mensagem = (String) ManterSocketNegocio.recebendoDadosViaSocket(
                 PrincipalServidor.CONFIGURACAO_GLOBAL.getPorta());
         return mensagem;
     }
-    
-    
 
     public static List<Usuario> pesquisarUsuario(String termo) throws Exception {
         List<Usuario> retorno = new ArrayList<>();
@@ -174,8 +172,7 @@ public class ManterKahootNegocio {
         }
         return retorno;
     }
-    
-    
+
     public static Usuario recebendoUsuarioViaSocketInfinitamente() throws Exception {
         Usuario usuario = (Usuario) ManterSocketNegocio.recebendoDadosViaSocketInfinitamente(
                 PrincipalServidor.CONFIGURACAO_GLOBAL.getPorta());

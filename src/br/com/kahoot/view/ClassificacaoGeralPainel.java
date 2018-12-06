@@ -33,11 +33,11 @@ public class ClassificacaoGeralPainel extends javax.swing.JPanel {
         botaoVoltar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(144, 48, 0));
+        setBackground(new java.awt.Color(153, 153, 153));
         setLayout(new java.awt.GridBagLayout());
 
         textoBuscar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        textoBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        textoBuscar.setForeground(new java.awt.Color(0, 0, 0));
         textoBuscar.setText("Buscar Resultado");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -45,7 +45,7 @@ public class ClassificacaoGeralPainel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         add(textoBuscar, gridBagConstraints);
 
-        botaoBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        botaoBuscar.setForeground(new java.awt.Color(0, 0, 0));
         botaoBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_buscar_24x24.png"))); // NOI18N
         botaoBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +66,7 @@ public class ClassificacaoGeralPainel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 2, 10, 10);
         add(campoPesquisa, gridBagConstraints);
 
-        tabelaClassificacao.setForeground(new java.awt.Color(255, 255, 255));
+        tabelaClassificacao.setForeground(new java.awt.Color(0, 0, 0));
         tabelaClassificacao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null}
@@ -83,7 +83,7 @@ public class ClassificacaoGeralPainel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 2;
         add(jScrollPane1, gridBagConstraints);
 
-        botaoVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        botaoVoltar.setForeground(new java.awt.Color(0, 0, 0));
         botaoVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_voltar_24x24.png"))); // NOI18N
         botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +98,7 @@ public class ClassificacaoGeralPainel extends javax.swing.JPanel {
         add(botaoVoltar, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Resultado dos Jogos");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;

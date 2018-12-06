@@ -15,6 +15,16 @@ import java.net.Socket;
  */
 public class ManterSocketNegocio {
 
+    private static ServerSocket servidor;
+
+    public static ServerSocket getServidor() {
+        return servidor;
+    }
+
+    public static void setServidor(ServerSocket servidor) {
+        ManterSocketNegocio.servidor = servidor;
+    }
+
     /**
      * Funcao que Cria um Server Socket e fica Escutando uma determinada porta.
      *
@@ -24,8 +34,12 @@ public class ManterSocketNegocio {
      * @throws ClassNotFoundException
      * @throws InterruptedException
      */
+    public static void iniciarSocket(Integer porta) throws Exception {
+        servidor = new ServerSocket(porta);
+
+    }
+
     public static Object recebendoDadosViaSocket(Integer porta) throws IOException, ClassNotFoundException, InterruptedException {
-        ServerSocket servidor = new ServerSocket(porta);
         Socket entradaDados = servidor.accept();
         ObjectInputStream input = new ObjectInputStream(entradaDados.getInputStream());
         Object objRecebido = input.readObject();

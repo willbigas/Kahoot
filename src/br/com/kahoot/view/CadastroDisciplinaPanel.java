@@ -39,11 +39,11 @@ public class CadastroDisciplinaPanel extends javax.swing.JPanel {
         PanelFundo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(144, 48, 0));
+        setBackground(new java.awt.Color(153, 153, 153));
         setLayout(new java.awt.GridBagLayout());
 
         textoNome.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        textoNome.setForeground(new java.awt.Color(255, 255, 255));
+        textoNome.setForeground(new java.awt.Color(0, 0, 0));
         textoNome.setText("Nome:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -53,7 +53,7 @@ public class CadastroDisciplinaPanel extends javax.swing.JPanel {
         add(textoNome, gridBagConstraints);
 
         textoProfessor.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        textoProfessor.setForeground(new java.awt.Color(255, 255, 255));
+        textoProfessor.setForeground(new java.awt.Color(0, 0, 0));
         textoProfessor.setText("Professor:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -80,11 +80,11 @@ public class CadastroDisciplinaPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(8, 8, 8, 8);
         add(CampoProfessor, gridBagConstraints);
 
-        PanelBotaoInferior.setBackground(new java.awt.Color(144, 48, 0));
+        PanelBotaoInferior.setBackground(new java.awt.Color(153, 153, 153));
         PanelBotaoInferior.setLayout(new java.awt.GridBagLayout());
 
         BotaoVoltar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        BotaoVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoVoltar.setForeground(new java.awt.Color(0, 0, 0));
         BotaoVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_voltar_32x32.png"))); // NOI18N
         BotaoVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +96,7 @@ public class CadastroDisciplinaPanel extends javax.swing.JPanel {
         PanelBotaoInferior.add(BotaoVoltar, gridBagConstraints);
 
         BotaoSalvar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        BotaoSalvar.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoSalvar.setForeground(new java.awt.Color(0, 0, 0));
         BotaoSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_salvar_32x32.png"))); // NOI18N
         BotaoSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,11 +113,11 @@ public class CadastroDisciplinaPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
         add(PanelBotaoInferior, gridBagConstraints);
 
-        PanelFundo.setBackground(new java.awt.Color(144, 48, 0));
+        PanelFundo.setBackground(new java.awt.Color(153, 153, 153));
         PanelFundo.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("CADASTRO DISCIPLINA");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
