@@ -25,20 +25,27 @@ import javax.swing.JOptionPane;
  * @since 05/12/2018
  */
 public class MenuPanel extends javax.swing.JPanel {
-    
+
     public static UsuarioDao usuarioDao = new UsuarioDaoImpl();
-    
+
     public MenuPanel() {
         initComponents();
+        jogandoIpNaTela();
+
+    }
+
+    /**
+     * Pega o IP da maquina e joga na tela de Menu
+     */
+    private void jogandoIpNaTela() {
         InetAddress ipAtual;
         try {
             ipAtual = InetAddress.getLocalHost();
             textoIpServidor.setText(ipAtual.getHostAddress());
         } catch (UnknownHostException unknownHostException) {
         }
-        
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -214,23 +221,17 @@ public class MenuPanel extends javax.swing.JPanel {
             Logger.getLogger(MenuPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_BotaoAssuntoActionPerformed
-    
+
+    /**
+     * Pega todos os Objetos e Usa Server socket para enviar via rede
+     *
+     * @param mensagem
+     */
     private static void enviandoTudo(String mensagem) {
-        /**
-         * Teste de Socket - Envio de Pergunta Via Porta determinada na Classe
-         * Main
-         */
         try {
-//            JOptionPane.showMessageDialog(null, "Enviando arquivos!, Apertar OK para prosseguir!");
             ManterKahootNegocio.enviandoDisciplinasViaSocket(CONFIGURACAO_GLOBAL.getPorta(), mensagem);
-//            Thread.sleep(5000);
-//            JOptionPane.showMessageDialog(null, "Enviado Disciplinas com sucesso, Apertar OK para prosseguir!");
             ManterKahootNegocio.enviandoRespostasViaSocket(CONFIGURACAO_GLOBAL.getPorta(), mensagem);
-//            Thread.sleep(5000);
-//            JOptionPane.showMessageDialog(null, "Enviado Respostas com sucesso, Apertar OK para prosseguir!");
             ManterKahootNegocio.enviandoPerguntasViaSocket(CONFIGURACAO_GLOBAL.getPorta(), mensagem);
-//            Thread.sleep(5000);
-//            JOptionPane.showMessageDialog(null, "Enviado Perguntas com sucesso, Apertar OK para prosseguir!");
 
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -245,7 +246,7 @@ public class MenuPanel extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_BotaoPlacarGeralActionPerformed
-    
+
     private static void mandandoUsuarioProBanco(Usuario user) throws HeadlessException {
         try {
             boolean inserido = usuarioDao.inserir(user);
@@ -297,12 +298,12 @@ public class MenuPanel extends javax.swing.JPanel {
                         Object objRecebido = input.readObject();
                         if (objRecebido instanceof Usuario) {
                             mandandoUsuarioProBanco((Usuario) objRecebido);
-                            
+
                         } else if (objRecebido instanceof String) {
                             String mensagem = (String) objRecebido;
                             enviandoTudo(mensagem);
                         }
-                        
+
                         entradaDados.close();
                     }
                 } catch (IOException iOException) {
