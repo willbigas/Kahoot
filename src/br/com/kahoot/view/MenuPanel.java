@@ -313,6 +313,5 @@ public class MenuPanel extends javax.swing.JPanel {
         };
         t.start();
 
-//        String ipCliente = ManterKahootNegocio.recebendoIpViaSocket();
     }
 }
